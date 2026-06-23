@@ -3,190 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お客様サポート - FAQ</title>
+    <title>よくあるご質問 | カスタマーサポート</title>
     <style>
+        /* 全体のリセットと背景色 */
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
             line-height: 1.6;
-            background-color: #f9fafb;
+            background-color: #f4f4f4;
             color: #333;
             margin: 0;
+            padding: 0;
+        }
+
+        /* オレンジのヘッダー帯 */
+        .orange-header {
+            background-color: #f37022; /* 快活CLUB風のオレンジ */
+            color: #fff;
             padding: 40px 20px;
-        }
-        .faq-container {
-            max-width: 650px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        h1 {
             text-align: center;
-            color: #111827;
-            margin-bottom: 30px;
-            font-size: 24px;
+            position: relative;
         }
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        /* ロゴ配置用スペース */
+        .logo-area {
+            max-height: 50px;
+        }
+        .logo-area img {
+            max-height: 50px;
+            object-fit: contain;
+        }
+        .page-title {
+            font-size: 26px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* メインコンテンツの幅 */
+        .main-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
         .loading {
             text-align: center;
             color: #6b7280;
             font-style: italic;
-        }
-        
-        /* --- 一覧表示用のスタイル --- */
-        details {
-            border-bottom: 1px solid #e5e7eb;
-            padding: 15px 0;
-        }
-        details[open] {
-            border-bottom: 1px solid #3b82f6;
-        }
-        summary {
-            font-weight: bold;
-            cursor: pointer;
-            list-style: none;
-            position: relative;
-            padding-right: 20px;
-        }
-        summary::-webkit-details-marker {
-            display: none;
-        }
-        summary::after {
-            content: '＋';
-            position: absolute;
-            right: 0;
-            color: #9ca3af;
-        }
-        details[open] summary::after {
-            content: '－';
-            color: #3b82f6;
-        }
-        .answer {
-            margin-top: 10px;
-            padding-left: 10px;
-            color: #4b5563;
-            white-space: pre-wrap;
+            padding: 40px;
         }
 
-        /* --- 1ページ1FAQ（単体表示）用のスタイル --- */
-        .single-faq {
-            padding: 10px 0;
+        /* --- 1ページ1FAQ（単体表示）のスタイル --- */
+        .qa-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
-        .single-question {
-            font-size: 20px;
+        .box-q, .box-a {
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            padding: 25px 30px;
+            display: flex;
+            align-items: flex-start;
+        }
+        /* Qのボックスは少しだけ背景を暖色に */
+        .box-q {
+            background-color: #fdfcfb;
+            border-color: #f2eade;
+        }
+        .prefix-q, .prefix-a {
+            font-size: 22px;
             font-weight: bold;
-            color: #1e3a8a;
-            border-left: 4px solid #3b82f6;
-            padding-left: 15px;
-            margin-bottom: 20px;
+            margin-right: 20px;
+            flex-shrink: 0;
         }
-        .single-answer {
+        .prefix-q { color: #111827; }
+        .prefix-a { color: #f37022; }
+
+        .text-q {
+            font-size: 18px;
+            font-weight: bold;
+            color: #111827;
+            margin: 2px 0 0 0;
+        }
+        .text-a {
             font-size: 16px;
-            color: #374151;
-            background-color: #f8fafc;
-            padding: 20px;
-            border-radius: 6px;
-            border: 1px solid #e2e8f0;
+            color: #333;
             white-space: pre-wrap;
+            margin: 4px 0 0 0;
+            width: 100%;
         }
-        .back-button {
-            display: inline-block;
+
+        /* アンケートエリア（Aのボックスの下部に内包） */
+        .survey-area {
+            border-top: 1px dashed #e5e5e5;
             margin-top: 30px;
-            color: #3b82f6;
+            padding-top: 25px;
+            text-align: center;
+        }
+        .survey-title {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .survey-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .btn-survey {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px 35px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-width: 100px;
+        }
+        .btn-survey:hover {
+            background-color: #f9f9f9;
+            border-color: #999;
+        }
+        .survey-thanks {
+            color: #22c55e;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* 下部の戻るボタン */
+        .btn-back {
+            display: block;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 12px 0;
+            text-align: center;
+            color: #333;
             text-decoration: none;
             font-size: 14px;
             font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.2s;
         }
-        .back-button:hover {
-            text-decoration: underline;
+        .btn-back:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* --- 通常の一覧表示用の簡易スタイル（念のため維持） --- */
+        .list-item {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            border-radius: 4px;
+            border: 1px solid #e5e5e5;
+        }
+        .list-item a {
+            color: #f37022;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-<div class="faq-container">
-    <h1 id="page-title">よくあるご質問（FAQ）</h1>
-    <div id="faq-content">
-        <p class="loading">データを読み込み中...</p>
+<header class="orange-header">
+    <div class="header-inner">
+        <div class="logo-area">
+            <img src="https://via.placeholder.com/150x50?text=LOGO" id="logo-img" alt="ロゴ">
+        </div>
+        <h1 class="page-title" id="dynamic-title">よくあるご質問（FAQ）</h1>
     </div>
-</div>
+</header>
+
+<main class="main-container" id="main-content">
+    <p class="loading">データを読み込み中...</p>
+</main>
 
 <script>
+    // ========================================================
+    // ★データ保管用：Googleフォームの設定（後述のステップで書き換えます）
+    // ========================================================
+    const GOOGLE_FORM_URL = "https://docs.google.com/forms/u/0/d/e/【フォームID】/formResponse";
+    const ENTRY_ID_FAQ    = "entry.【FAQ番号用の番号】";
+    const ENTRY_ID_VOTE   = "entry.【はい・いいえ用の番号】";
+
     async function loadFAQ() {
-        const faqContent = document.getElementById('faq-content');
-        const pageTitle = document.getElementById('page-title');
+        const mainContent = document.getElementById('main-content');
+        const dynamicTitle = document.getElementById('dynamic-title');
         
         try {
-            // スプレッドシートから同期されたJSONを読み込む
             const response = await fetch('./faq_data.json?t=' + new Date().getTime());
-            if (!response.ok) throw new Error('データの取得に失敗しました');
+            if (!response.ok) throw new Error('データ取得失敗');
             
             const data = await response.json();
-            faqContent.innerHTML = '';
             
-            // URLパラメータ（?id=1 など）を取得する
             const urlParams = new URLSearchParams(window.location.search);
             const faqIdStr = urlParams.get('id');
             
             // ----------------------------------------------------
-            // パターンA：URLに ?id=数字 が指定されている場合（1ページ1FAQ）
+            // 1ページ1FAQ 表示モード
             // ----------------------------------------------------
             if (faqIdStr) {
-                const index = parseInt(faqIdStr, 10) - 1; // 配列用に1を引く
+                const index = parseInt(faqIdStr, 10) - 1;
                 
-                // 指定された番号のFAQが存在するかチェック
                 if (data[index]) {
-                    // タイトルを「Q&A」などに書き換える
-                    pageTitle.textContent = "ご質問への回答";
+                    const currentFaq = data[index];
                     
-                    // 1つのFAQだけを組み立てて表示（アコーディオンではなく最初から全開）
-                    faqContent.innerHTML = `
-                        <div class="single-faq">
-                            <div class="single-question">Q. ${data[index].question}</div>
-                            <div class="single-answer">${data[index].answer}</div>
+                    // ヘッダーの文字を「質問内容」に書き換え
+                    dynamicTitle.textContent = currentFaq.question;
+                    
+                    // ご提示いただいた画像の構成を作成
+                    mainContent.innerHTML = `
+                        <div class="qa-card">
+                            <div class="box-q">
+                                <span class="prefix-q">Q</span>
+                                <p class="text-q">${currentFaq.question}</p>
+                            </div>
+                            <div class="box-a">
+                                <span class="prefix-a">A</span>
+                                <div style="width: 100%;">
+                                    <p class="text-a">${currentFaq.answer}</p>
+                                    
+                                    <div class="survey-area" id="survey-box">
+                                        <p class="survey-title">上記Q&Aは参考になりましたか？</p>
+                                        <div class="survey-buttons">
+                                            <button class="btn-survey" onclick="submitSurvey('${faqIdStr}', 'はい')">はい</button>
+                                            <button class="btn-survey" onclick="submitSurvey('${faqIdStr}', 'いいえ')">いいえ</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <a href="./" class="back-button">← FAQ一覧へ戻る</a>
+                        <a href="./" class="btn-back">つつ 検索結果一覧に戻る</a>
                     `;
-                    return; // 処理をここで終了
+                    return;
                 }
             }
             
             // ----------------------------------------------------
-            // パターンB：URLに id の指定がない、または無効な場合（通常の一覧表示）
+            // 一覧表示モード（?id がない場合）
             // ----------------------------------------------------
-            pageTitle.textContent = "よくあるご質問（FAQ）";
+            dynamicTitle.textContent = "よくあるご質問（FAQ）";
+            mainContent.innerHTML = '<h2>ご質問一覧</h2>';
+            
             if (data.length === 0) {
-                faqContent.innerHTML = '<p class="loading">現在、よくあるご質問はありません。</p>';
+                mainContent.innerHTML += '<p class="loading">現在FAQはありません。</p>';
                 return;
             }
             
             data.forEach((item, i) => {
-                const details = document.createElement('details');
-                const summary = document.createElement('summary');
-                summary.textContent = item.question;
-                
-                const answerDiv = document.createElement('div');
-                answerDiv.className = 'answer';
-                answerDiv.textContent = item.answer;
-                
-                // 💡一覧画面で、各FAQの下に「このFAQの専用URL」をこっそり配置したい場合は以下を有効にしてください
-                // const id = i + 1;
-                // const link = document.createElement('a');
-                // link.href = `./?id=${id}`;
-                // link.textContent = "【この質問の専用ページを開く】";
-                // link.style.cssText = "display:block; font-size:11px; color:#9ca3af; text-decoration:none; margin-top:5px;";
-                // answerDiv.appendChild(link);
-                
-                details.appendChild(summary);
-                details.appendChild(answerDiv);
-                faqContent.appendChild(details);
+                const id = i + 1;
+                const div = document.createElement('div');
+                div.className = 'list-item';
+                div.innerHTML = `<a href="./?id=${id}">Q. ${item.question}</a>`;
+                mainContent.appendChild(div);
             });
             
         } catch (error) {
             console.error(error);
-            faqContent.innerHTML = '<p class="loading" style="color: #ef4444;">FAQの読み込みに失敗しました。</p>';
+            mainContent.innerHTML = '<p class="loading" style="color:red;">データの読み込みに失敗しました。</p>';
         }
     }
+
+    // 「はい」「いいえ」が押された時のデータ送信処理
+    function submitSurvey(faqId, voteValue) {
+        // 画面上のボタンを「ありがとうございます」に切り替える
+        const surveyBox = document.getElementById('survey-box');
+        surveyBox.innerHTML = '<p class="survey-thanks">投票ありがとうございました。</p>';
+
+        // 設定がデフォルトのままなら送信をスキップ
+        if (GOOGLE_FORM_URL.includes('【フォームID】')) {
+            console.log("Googleフォーム未設定のため、ログ出力のみ:", faqId, voteValue);
+            return;
+        }
+
+        // Googleフォームの仕組みを使って裏側でデータを送信（CORSエラーが出ますがデータは届きます）
+        const formData = new FormData();
+        formData.append(ENTRY_ID_FAQ, "FAQ-" + faqId);
+        formData.append(ENTRY_ID_VOTE, voteValue);
+
+        fetch(GOOGLE_FORM_URL, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' // これにより画面遷移を防ぐ
+        }).catch(err => console.log("送信完了"));
+    }
+
     window.addEventListener('DOMContentLoaded', loadFAQ);
 </script>
 
