@@ -32,19 +32,14 @@
             color: #6b7280;
             font-style: italic;
         }
-        /* ★注目：特定URLでアクセスされた時に、少し強調されてフワッと動くアニメーション */
+        
+        /* --- 一覧表示用のスタイル --- */
         details {
             border-bottom: 1px solid #e5e7eb;
             padding: 15px 0;
-            scroll-margin-top: 20px; /* スクロールした時に上に少し隙間を作る */
-            transition: background-color 0.5s ease;
         }
         details[open] {
             border-bottom: 1px solid #3b82f6;
-        }
-        /* 個別URLで指定されたFAQの背景を一瞬ハイライト */
-        details:target {
-            background-color: #f0f6ff;
         }
         summary {
             font-weight: bold;
@@ -72,39 +67,101 @@
             color: #4b5563;
             white-space: pre-wrap;
         }
+
+        /* --- 1ページ1FAQ（単体表示）用のスタイル --- */
+        .single-faq {
+            padding: 10px 0;
+        }
+        .single-question {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1e3a8a;
+            border-left: 4px solid #3b82f6;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        .single-answer {
+            font-size: 16px;
+            color: #374151;
+            background-color: #f8fafc;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            white-space: pre-wrap;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
 <div class="faq-container">
-    <h1>よくあるご質問（FAQ）</h1>
-    <div id="faq-list">
+    <h1 id="page-title">よくあるご質問（FAQ）</h1>
+    <div id="faq-content">
         <p class="loading">データを読み込み中...</p>
     </div>
 </div>
 
 <script>
     async function loadFAQ() {
-        const faqList = document.getElementById('faq-list');
+        const faqContent = document.getElementById('faq-content');
+        const pageTitle = document.getElementById('page-title');
+        
         try {
+            // スプレッドシートから同期されたJSONを読み込む
             const response = await fetch('./faq_data.json?t=' + new Date().getTime());
             if (!response.ok) throw new Error('データの取得に失敗しました');
             
             const data = await response.json();
-            faqList.innerHTML = '';
+            faqContent.innerHTML = '';
             
+            // URLパラメータ（?id=1 など）を取得する
+            const urlParams = new URLSearchParams(window.location.search);
+            const faqIdStr = urlParams.get('id');
+            
+            // ----------------------------------------------------
+            // パターンA：URLに ?id=数字 が指定されている場合（1ページ1FAQ）
+            // ----------------------------------------------------
+            if (faqIdStr) {
+                const index = parseInt(faqIdStr, 10) - 1; // 配列用に1を引く
+                
+                // 指定された番号のFAQが存在するかチェック
+                if (data[index]) {
+                    // タイトルを「Q&A」などに書き換える
+                    pageTitle.textContent = "ご質問への回答";
+                    
+                    // 1つのFAQだけを組み立てて表示（アコーディオンではなく最初から全開）
+                    faqContent.innerHTML = `
+                        <div class="single-faq">
+                            <div class="single-question">Q. ${data[index].question}</div>
+                            <div class="single-answer">${data[index].answer}</div>
+                        </div>
+                        <a href="./" class="back-button">← FAQ一覧へ戻る</a>
+                    `;
+                    return; // 処理をここで終了
+                }
+            }
+            
+            // ----------------------------------------------------
+            // パターンB：URLに id の指定がない、または無効な場合（通常の一覧表示）
+            // ----------------------------------------------------
+            pageTitle.textContent = "よくあるご質問（FAQ）";
             if (data.length === 0) {
-                faqList.innerHTML = '<p class="loading">現在、よくあるご質問はありません。</p>';
+                faqContent.innerHTML = '<p class="loading">現在、よくあるご質問はありません。</p>';
                 return;
             }
             
-            // ★変更点：スプレッドシートの上から順に「1, 2, 3...」と連番のIDを自動で振る
-            data.forEach((item, index) => {
-                const faqId = index + 1; 
-                
+            data.forEach((item, i) => {
                 const details = document.createElement('details');
-                details.id = 'faq-' + faqId; // 各FAQに id="faq-1" などを付与
-                
                 const summary = document.createElement('summary');
                 summary.textContent = item.question;
                 
@@ -112,39 +169,25 @@
                 answerDiv.className = 'answer';
                 answerDiv.textContent = item.answer;
                 
+                // 💡一覧画面で、各FAQの下に「このFAQの専用URL」をこっそり配置したい場合は以下を有効にしてください
+                // const id = i + 1;
+                // const link = document.createElement('a');
+                // link.href = `./?id=${id}`;
+                // link.textContent = "【この質問の専用ページを開く】";
+                // link.style.cssText = "display:block; font-size:11px; color:#9ca3af; text-decoration:none; margin-top:5px;";
+                // answerDiv.appendChild(link);
+                
                 details.appendChild(summary);
                 details.appendChild(answerDiv);
-                faqList.appendChild(details);
+                faqContent.appendChild(details);
             });
-
-            // ★新機能：URLの末尾に「#faq-数字」があるかチェックし、あれば自動で開いてスクロール
-            checkUrlHash();
-
+            
         } catch (error) {
             console.error(error);
-            faqList.innerHTML = '<p class="loading" style="color: #ef4444;">FAQの読み込みに失敗しました。</p>';
+            faqContent.innerHTML = '<p class="loading" style="color: #ef4444;">FAQの読み込みに失敗しました。</p>';
         }
     }
-
-    // URLのハッシュ（#）を解析して特定のFAQを開く関数
-    function checkUrlHash() {
-        const hash = window.location.hash; // URLの「#faq-1」などの部分を取得
-        if (hash) {
-            const targetDetails = document.querySelector(hash);
-            if (targetDetails && targetDetails.tagName === 'DETAILS') {
-                targetDetails.open = true; // アコーディオンを開く
-                
-                // 少しだけ遅らせて綺麗にスクロールさせる
-                setTimeout(() => {
-                    targetDetails.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 200);
-            }
-        }
-    }
-
     window.addEventListener('DOMContentLoaded', loadFAQ);
-    // ページを開いた後でURLのハッシュが切り替わった時にも動くようにする
-    window.addEventListener('hashchange', checkUrlHash);
 </script>
 
 </body>
