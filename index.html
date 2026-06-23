@@ -7,17 +7,19 @@
     <style>
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
+            line-height: 1.7;
+            background-color: #f7f9fa;
             color: #333;
             margin: 0;
             padding: 0;
         }
-        .orange-header {
-            background-color: #f37022;
+        .kaikatsu-header {
+            background-color: #002554;
             color: #fff;
-            padding: 20px;
+            padding: 18px 20px;
             text-align: center;
+            border-bottom: 4px solid #f37022;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
         .header-inner {
             max-width: 1100px;
@@ -26,8 +28,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 50px;
+            min-height: 45px;
         }
+        /* 💡ロゴ消滅バグ対策：縦横サイズをブラウザに明示 */
         .logo-area {
             position: absolute;
             left: 0;
@@ -37,74 +40,104 @@
             align-items: center;
         }
         .logo-area img {
-            max-height: 45px;
+            height: 40px; 
+            width: auto; 
+            display: block;
             object-fit: contain;
         }
         .page-title {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
             margin: 0;
             padding: 0 160px;
+            letter-spacing: 0.05em;
         }
+
         .main-container {
-            max-width: 1000px;
-            margin: 30px auto;
+            max-width: 900px;
+            margin: 40px auto;
             padding: 0 20px;
             box-sizing: border-box;
         }
+
+        h2 {
+            font-size: 22px;
+            color: #002554;
+            border-bottom: 2px solid #002554;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
         .loading {
             text-align: center;
-            color: #6b7280;
+            color: #666;
             font-style: italic;
             padding: 40px;
         }
+
+        /* ─── 快活CLUB風：Q&Aカードデザイン ─── */
         .qa-card {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
         }
         .box-q, .box-a {
             background-color: #fff;
-            border: 1px solid #e5e5e5;
-            border-radius: 4px;
+            border: 1px solid #e1e8ed;
+            border-radius: 6px;
             padding: 25px 30px;
             display: flex;
             align-items: flex-start;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
+        /* Qボックス：左側にオレンジの太線 */
         .box-q {
-            background-color: #fdfcfb;
-            border-color: #f2eade;
+            border-left: 6px solid #f37022;
+            background-color: #fff;
         }
+        /* Aボックス：左側に濃紺の太線 */
+        .box-a {
+            border-left: 6px solid #002554;
+            background-color: #fff;
+        }
+        
         .prefix-q, .prefix-a {
-            font-size: 22px;
-            font-weight: bold;
+            font-size: 24px;
+            font-weight: 900;
             margin-right: 20px;
             flex-shrink: 0;
+            line-height: 1;
+            font-family: 'Arial Black', sans-serif;
         }
-        .prefix-q { color: #111827; }
-        .prefix-a { color: #f37022; }
+        .prefix-q { color: #f37022; } /* Qはオレンジ */
+        .prefix-a { color: #002554; } /* Aは濃紺 */
+
         .text-q {
             font-size: 18px;
             font-weight: bold;
-            color: #111827;
-            margin: 2px 0 0 0;
+            color: #002554; /* 質問テキストも濃紺に */
+            margin: 0;
         }
         .text-a {
             font-size: 16px;
             color: #333;
             white-space: pre-wrap;
-            margin: 4px 0 0 0;
+            margin: 0;
             width: 100%;
         }
+
+        /* アンケートエリア */
         .survey-area {
-            border-top: 1px dashed #e5e5e5;
+            border-top: 1px dashed #e1e8ed;
             margin-top: 30px;
             padding-top: 25px;
             text-align: center;
         }
         .survey-title {
             font-size: 14px;
-            color: #666;
+            color: #555;
+            font-weight: bold;
             margin-bottom: 15px;
         }
         .survey-buttons {
@@ -114,63 +147,85 @@
         }
         .btn-survey {
             background-color: #fff;
-            border: 1px solid #ccc;
+            border: 2px solid #002554;
+            color: #002554;
             border-radius: 4px;
             padding: 8px 35px;
             font-size: 14px;
+            font-weight: bold;
             cursor: pointer;
             transition: all 0.2s;
-            min-width: 100px;
+            min-width: 110px;
         }
         .btn-survey:hover {
-            background-color: #f9f9f9;
-            border-color: #999;
+            background-color: #002554;
+            color: #fff;
         }
         .survey-thanks {
-            color: #22c55e;
+            color: #198754;
             font-weight: bold;
             font-size: 14px;
+            background-color: #e8f5e9;
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 4px;
         }
+
+        /* ─── 快活CLUB風：ボタン＆リスト ─── */
         .btn-back {
             display: block;
             width: 100%;
-            background-color: #fff;
-            border: 1px solid #ccc;
+            background-color: #002554;
+            border: none;
             border-radius: 4px;
-            padding: 12px 0;
+            padding: 14px 0;
             text-align: center;
-            color: #333;
+            color: #fff;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 30px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
             transition: background-color 0.2s;
         }
         .btn-back:hover {
-            background-color: #f9f9f9;
+            background-color: #001838;
         }
+
+        /* 一覧表示のリストアイテム */
         .list-item {
             background: #fff;
-            margin-bottom: 10px;
-            padding: 15px 20px;
-            border-radius: 4px;
-            border: 1px solid #e5e5e5;
+            margin-bottom: 12px;
+            padding: 18px 25px;
+            border-radius: 6px;
+            border: 1px solid #e1e8ed;
+            border-left: 4px solid #002554; /* リストの左側にも濃紺のアクセント */
+            transition: all 0.2s;
+        }
+        .list-item:hover {
+            border-left-color: #f37022; /* ホバーするとオレンジに変化 */
+            transform: translateX(4px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
         .list-item a {
-            color: #f37022;
+            color: #333;
             text-decoration: none;
             font-weight: bold;
+            display: block;
+        }
+        .list-item:hover a {
+            color: #f37022; /* 文字も快活オレンジに */
         }
     </style>
 </head>
 <body>
 
-<header class="orange-header" style="position: relative; display: flex; justify-content: center; align-items: center; height: 65px; padding: 0; background-color: #ff6a13;">
-    <div class="logo-area" style="position: absolute; left: 0; top: 0; height: 100%; background-color: #ffffff; padding: 0 20px; display: flex; align-items: center; justify-content: center; border-right: 2px solid rgba(0,0,0,0.1); box-sizing: border-box; z-index: 10;">
-        <img src="logo01.svg" id="logo-img" alt="ロゴ" style="height: 70%; width: auto; display: block; object-fit: contain;">
-    </div>
-    <div class="header-inner" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-        <h1 class="page-title" id="dynamic-title" style="margin: 0; color: #ffffff; font-size: 20px; font-weight: bold; text-align: center;">よくあるご質問（FAQ）</h1>
+<header class="kaikatsu-header">
+    <div class="header-inner">
+        <div class="logo-area">
+            <img src="logo01.svg" id="logo-img" alt="ロゴ">
+        </div>
+        <h1 class="page-title" id="dynamic-title">よくあるご質問（FAQ）</h1>
     </div>
 </header>
 
@@ -179,7 +234,6 @@
 </main>
 
 <script>
-    // あなたの正しいアンケート用フォーム情報が組み込まれています
     const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdgSExp6LSczREuzJmX20E7sNuAHQNFOxSzu-eaMYi-wQVuxg/formResponse";
     const ENTRY_ID_FAQ    = "entry.1110027652";
     const ENTRY_ID_VOTE   = "entry.524450877";
@@ -194,13 +248,10 @@
             
             const data = await response.json();
             const urlParams = new URLSearchParams(window.location.search);
-            const faqIdStr = urlParams.get('id'); // 例: "karaoke-x7R9" などの文字列を取得
+            const faqIdStr = urlParams.get('id');
             
-            // ----------------------------------------------------
-            // 1ページ1FAQ 表示モード（URLに id がある場合）
-            // ----------------------------------------------------
+            // 1ページ1FAQ 表示モード
             if (faqIdStr) {
-                // 💡【変更点】行番号計算ではなく、JSONデータの中からIDが完全一致するものを探す
                 const currentFaq = data.find(item => item.id === faqIdStr);
                 
                 if (currentFaq) {
@@ -232,9 +283,7 @@
                 }
             }
             
-            // ----------------------------------------------------
-            // 一覧表示モード（?id がない場合）
-            // ----------------------------------------------------
+            // 一覧表示モード
             dynamicTitle.textContent = "よくあるご質問（FAQ）";
             mainContent.innerHTML = '<h2>ご質問一覧</h2>';
             
@@ -246,7 +295,6 @@
             data.forEach((item) => {
                 const div = document.createElement('div');
                 div.className = 'list-item';
-                // 💡【変更点】一覧からのリンクも本番用の新しいパラメータ形式に修正
                 div.innerHTML = `<a href="./?category=${item.category}&id=${item.id}">Q. ${item.question}</a>`;
                 mainContent.appendChild(div);
             });
@@ -260,10 +308,10 @@
     // アンケート送信処理
     function submitSurvey(faqId, voteValue) {
         const surveyBox = document.getElementById('survey-box');
-        surveyBox.innerHTML = '<p class="survey-thanks">投票ありがとうございました。</p>';
+        surveyBox.innerHTML = '<p class="survey-thanks">🎉 投票ありがとうございました。</p>';
 
         const params = new URLSearchParams();
-        params.append(ENTRY_ID_FAQ, "FAQ-" + faqId); // 例: "FAQ-karaoke-x7R9" としてGoogleフォームへ蓄積
+        params.append(ENTRY_ID_FAQ, "FAQ-" + faqId);
         params.append(ENTRY_ID_VOTE, voteValue);
 
         fetch(GOOGLE_FORM_URL, {
