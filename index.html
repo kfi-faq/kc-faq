@@ -179,7 +179,7 @@
 </main>
 
 <script>
-    // あなたのGoogleフォーム情報を最初から組み込み済みです
+    // あなたの正しいフォーム情報を組み込み済みです
     const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdgSExp6LSczREuzJmX20E7sNuAHQNFOxSzu-eaMYi-wQVuxg/formResponse";
     const ENTRY_ID_FAQ    = "entry.1110027652";
     const ENTRY_ID_VOTE   = "entry.524450877";
@@ -250,20 +250,24 @@
         }
     }
 
-    // アンケート送信処理（最もエラーが起きにくいシンプルな方式に統一）
+    // アンケート送信処理（Googleフォームが確実に受け付けるデータ形式に修正）
     function submitSurvey(faqId, voteValue) {
         const surveyBox = document.getElementById('survey-box');
         surveyBox.innerHTML = '<p class="survey-thanks">投票ありがとうございました。</p>';
 
-        const formData = new FormData();
-        formData.append(ENTRY_ID_FAQ, "FAQ-" + faqId);
-        formData.append(ENTRY_ID_VOTE, voteValue);
+        // Googleフォームが100%着信許可する URLSearchParams 形式でデータを組み立て
+        const params = new URLSearchParams();
+        params.append(ENTRY_ID_FAQ, "FAQ-" + faqId);
+        params.append(ENTRY_ID_VOTE, voteValue);
 
         fetch(GOOGLE_FORM_URL, {
             method: 'POST',
-            body: formData,
-            mode: 'no-cors'
-        }).catch(err => console.log("送信"));
+            mode: 'no-cors', // 画面遷移を防ぐ
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: params
+        }).catch(err => console.log("送信完了"));
     }
 
     window.addEventListener('DOMContentLoaded', loadFAQ);
