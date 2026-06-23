@@ -272,31 +272,30 @@
         }
     }
 
-    // アンケート送信処理（確実なフォーム送信方式に改良）
+    // アンケート送信処理
     function submitSurvey(faqId, voteValue) {
         const surveyBox = document.getElementById('survey-box');
         surveyBox.innerHTML = '<p class="survey-thanks">投票ありがとうございました。</p>';
 
         if (GOOGLE_FORM_URL.includes('【ここにフォームID】')) {
-            console.log("未設定のためログのみ:", faqId, voteValue);
             return;
         }
 
-        // 見えないフォームを動的に作って送信する（確実な方法）
+        // 見えないフォームを動的に作って送信する
         const form = document.createElement('form');
         form.action = GOOGLE_FORM_URL;
         form.method = 'POST';
-        form.target = 'hidden_iframe'; // 画面を切り替えないための設定
+        form.target = 'hidden_iframe';
 
         const inputFaq = document.createElement('input');
         inputFaq.type = 'hidden';
         inputFaq.name = ENTRY_ID_FAQ;
-        inputFaq.value = "FAQ-" + faqId;
+        inputFaq.value = faqId; // ★ "FAQ-" を付けずに、URLパラメータと同じ純粋な数字（1, 2...）を送る
 
         const inputVote = document.createElement('input');
         inputVote.type = 'hidden';
         inputVote.name = ENTRY_ID_VOTE;
-        inputVote.value = voteValue;
+        inputVote.value = voteValue; // ★ フォームの選択肢（はい/いいえ）と完全一致させる
 
         form.appendChild(inputFaq);
         form.appendChild(inputVote);
