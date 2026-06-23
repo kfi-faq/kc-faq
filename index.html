@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お客様サポート - FAQ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9fafb;
+            color: #333;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .faq-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            color: #111827;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        .loading {
+            text-align: center;
+            color: #6b7280;
+            font-style: italic;
+        }
+        details {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 0;
+        }
+        details[open] {
+            border-bottom: 1px solid #3b82f6;
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            list-style: none;
+            position: relative;
+            padding-right: 20px;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary::after {
+            content: '＋';
+            position: absolute;
+            right: 0;
+            color: #9ca3af;
+        }
+        details[open] summary::after {
+            content: '－';
+            color: #3b82f6;
+        }
+        .answer {
+            margin-top: 10px;
+            padding-left: 10px;
+            color: #4b5563;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+<div class="faq-container">
+    <h1>よくあるご質問（FAQ）</h1>
+    <div id="faq-list">
+        <p class="loading">データを読み込み中...</p>
+    </div>
+</div>
+
+<script>
+    async function loadFAQ() {
+        const faqList = document.getElementById('faq-list');
+        try {
+            // 同一ディレクトリにある json を読み込む（キャッシュ対策のタイムスタンプ付き）
+            const response = await fetch('./faq_data.json?t=' + new Date().getTime());
+            if (!response.ok) throw new Error('データの取得に失敗しました');
+            
+            const data = await response.json();
+            faqList.innerHTML = '';
+            
+            if (data.length === 0) {
+                faqList.innerHTML = '<p class="loading">現在、よくあるご質問はありません。</p>';
+                return;
+            }
+            
+            data.forEach(item => {
+                const details = document.createElement('details');
+                const summary = document.createElement('summary');
+                summary.textContent = item.question;
+                
+                const answerDiv = document.createElement('div');
+                answerDiv.className = 'answer';
+                answerDiv.textContent = item.answer;
+                
+                details.appendChild(summary);
+                details.appendChild(answerDiv);
+                faqList.appendChild(details);
+            });
+        } catch (error) {
+            console.error(error);
+            faqList.innerHTML = '<p class="loading" style="color: #ef4444;">FAQの読み込みに失敗しました。</p>';
+        }
+    }
+    window.addEventListener('DOMContentLoaded', loadFAQ);
+</script>
+
+</body>
+</html>
