@@ -13,24 +13,21 @@
             margin: 0;
             padding: 0;
         }
-
-        /* オレンジのヘッダー帯（縦幅をスマートに修正） */
         .orange-header {
             background-color: #f37022;
             color: #fff;
-            padding: 20px; /* 上下の幅を縮小 */
+            padding: 20px;
             text-align: center;
         }
         .header-inner {
             max-width: 1100px;
             margin: 0 auto;
-            position: relative; /* ロゴを左端に固定するための基準 */
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 50px;
         }
-        /* ロゴを左端に配置 */
         .logo-area {
             position: absolute;
             left: 0;
@@ -40,31 +37,27 @@
             align-items: center;
         }
         .logo-area img {
-            max-height: 45px; /* ヘッダーの幅に合わせて微調整 */
+            max-height: 45px;
             object-fit: contain;
         }
         .page-title {
             font-size: 22px;
             font-weight: bold;
             margin: 0;
-            padding: 0 160px; /* ロゴと重ならないように左右に余白を確保 */
+            padding: 0 160px;
         }
-
         .main-container {
             max-width: 1000px;
             margin: 30px auto;
             padding: 0 20px;
             box-sizing: border-box;
         }
-
         .loading {
             text-align: center;
             color: #6b7280;
             font-style: italic;
             padding: 40px;
         }
-
-        /* --- Q&Aカードのデザイン --- */
         .qa-card {
             display: flex;
             flex-direction: column;
@@ -90,7 +83,6 @@
         }
         .prefix-q { color: #111827; }
         .prefix-a { color: #f37022; }
-
         .text-q {
             font-size: 18px;
             font-weight: bold;
@@ -104,8 +96,6 @@
             margin: 4px 0 0 0;
             width: 100%;
         }
-
-        /* アンケートエリア */
         .survey-area {
             border-top: 1px dashed #e5e5e5;
             margin-top: 30px;
@@ -141,8 +131,6 @@
             font-weight: bold;
             font-size: 14px;
         }
-
-        /* 下部の戻るボタン（誤字修正） */
         .btn-back {
             display: block;
             width: 100%;
@@ -161,7 +149,6 @@
         .btn-back:hover {
             background-color: #f9f9f9;
         }
-
         .list-item {
             background: #fff;
             margin-bottom: 10px;
@@ -191,14 +178,8 @@
     <p class="loading">データを読み込み中...</p>
 </main>
 
-<div style="display:none;">
-    <iframe name="hidden_iframe" id="hidden_iframe"></iframe>
-</div>
-
 <script>
-    // ========================================================
-    // ★データ保管用：Googleフォームの設定（前回の内容に書き換えてください）
-    // ========================================================
+    // あなたのGoogleフォーム情報を最初から組み込み済みです
     const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdgSExp6LSczREuzJmX20E7sNuAHQNFOxSzu-eaMYi-wQVuxg/formResponse";
     const ENTRY_ID_FAQ    = "entry.1110027652";
     const ENTRY_ID_VOTE   = "entry.524450877";
@@ -212,13 +193,11 @@
             if (!response.ok) throw new Error('データ取得失敗');
             
             const data = await response.json();
-            
             const urlParams = new URLSearchParams(window.location.search);
             const faqIdStr = urlParams.get('id');
             
             if (faqIdStr) {
                 const index = parseInt(faqIdStr, 10) - 1;
-                
                 if (data[index]) {
                     const currentFaq = data[index];
                     dynamicTitle.textContent = currentFaq.question;
@@ -233,7 +212,6 @@
                                 <span class="prefix-a">A</span>
                                 <div style="width: 100%;">
                                     <p class="text-a">${currentFaq.answer}</p>
-                                    
                                     <div class="survey-area" id="survey-box">
                                         <p class="survey-title">上記Q&Aは参考になりましたか？</p>
                                         <div class="survey-buttons">
@@ -272,37 +250,20 @@
         }
     }
 
-    // アンケート送信処理
+    // アンケート送信処理（最もエラーが起きにくいシンプルな方式に統一）
     function submitSurvey(faqId, voteValue) {
         const surveyBox = document.getElementById('survey-box');
         surveyBox.innerHTML = '<p class="survey-thanks">投票ありがとうございました。</p>';
 
-        if (GOOGLE_FORM_URL.includes('【ここにフォームID】')) {
-            return;
-        }
+        const formData = new FormData();
+        formData.append(ENTRY_ID_FAQ, "FAQ-" + faqId);
+        formData.append(ENTRY_ID_VOTE, voteValue);
 
-        // 見えないフォームを動的に作って送信する
-        const form = document.createElement('form');
-        form.action = GOOGLE_FORM_URL;
-        form.method = 'POST';
-        form.target = 'hidden_iframe';
-
-        const inputFaq = document.createElement('input');
-        inputFaq.type = 'hidden';
-        inputFaq.name = ENTRY_ID_FAQ;
-        inputFaq.value = faqId; // ★ "FAQ-" を付けずに、URLパラメータと同じ純粋な数字（1, 2...）を送る
-
-        const inputVote = document.createElement('input');
-        inputVote.type = 'hidden';
-        inputVote.name = ENTRY_ID_VOTE;
-        inputVote.value = voteValue; // ★ フォームの選択肢（はい/いいえ）と完全一致させる
-
-        form.appendChild(inputFaq);
-        form.appendChild(inputVote);
-        document.body.appendChild(form);
-        
-        form.submit();
-        document.body.removeChild(form);
+        fetch(GOOGLE_FORM_URL, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        }).catch(err => console.log("送信"));
     }
 
     window.addEventListener('DOMContentLoaded', loadFAQ);
