@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4TFRBEJ3RJ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-4TFRBEJ3RJ');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>よくあるご質問 | カスタマーサポート</title>
@@ -187,7 +179,7 @@
 </main>
 
 <script>
-    // あなたの正しいフォーム情報を組み込み済みです
+    // あなたの正しいアンケート用フォーム情報が組み込まれています
     const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdgSExp6LSczREuzJmX20E7sNuAHQNFOxSzu-eaMYi-wQVuxg/formResponse";
     const ENTRY_ID_FAQ    = "entry.1110027652";
     const ENTRY_ID_VOTE   = "entry.524450877";
@@ -202,12 +194,16 @@
             
             const data = await response.json();
             const urlParams = new URLSearchParams(window.location.search);
-            const faqIdStr = urlParams.get('id');
+            const faqIdStr = urlParams.get('id'); // 例: "karaoke-x7R9" などの文字列を取得
             
+            // ----------------------------------------------------
+            // 1ページ1FAQ 表示モード（URLに id がある場合）
+            // ----------------------------------------------------
             if (faqIdStr) {
-                const index = parseInt(faqIdStr, 10) - 1;
-                if (data[index]) {
-                    const currentFaq = data[index];
+                // 💡【変更点】行番号計算ではなく、JSONデータの中からIDが完全一致するものを探す
+                const currentFaq = data.find(item => item.id === faqIdStr);
+                
+                if (currentFaq) {
                     dynamicTitle.textContent = currentFaq.question;
                     
                     mainContent.innerHTML = `
@@ -236,6 +232,9 @@
                 }
             }
             
+            // ----------------------------------------------------
+            // 一覧表示モード（?id がない場合）
+            // ----------------------------------------------------
             dynamicTitle.textContent = "よくあるご質問（FAQ）";
             mainContent.innerHTML = '<h2>ご質問一覧</h2>';
             
@@ -244,11 +243,11 @@
                 return;
             }
             
-            data.forEach((item, i) => {
-                const id = i + 1;
+            data.forEach((item) => {
                 const div = document.createElement('div');
                 div.className = 'list-item';
-                div.innerHTML = `<a href="./?id=${id}">Q. ${item.question}</a>`;
+                // 💡【変更点】一覧からのリンクも本番用の新しいパラメータ形式に修正
+                div.innerHTML = `<a href="./?category=${item.category}&id=${item.id}">Q. ${item.question}</a>`;
                 mainContent.appendChild(div);
             });
             
@@ -258,19 +257,18 @@
         }
     }
 
-    // アンケート送信処理（Googleフォームが確実に受け付けるデータ形式に修正）
+    // アンケート送信処理
     function submitSurvey(faqId, voteValue) {
         const surveyBox = document.getElementById('survey-box');
         surveyBox.innerHTML = '<p class="survey-thanks">投票ありがとうございました。</p>';
 
-        // Googleフォームが100%着信許可する URLSearchParams 形式でデータを組み立て
         const params = new URLSearchParams();
-        params.append(ENTRY_ID_FAQ, "FAQ-" + faqId);
+        params.append(ENTRY_ID_FAQ, "FAQ-" + faqId); // 例: "FAQ-karaoke-x7R9" としてGoogleフォームへ蓄積
         params.append(ENTRY_ID_VOTE, voteValue);
 
         fetch(GOOGLE_FORM_URL, {
             method: 'POST',
-            mode: 'no-cors', // 画面遷移を防ぐ
+            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
