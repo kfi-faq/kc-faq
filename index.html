@@ -32,12 +32,19 @@
             color: #6b7280;
             font-style: italic;
         }
+        /* ★注目：特定URLでアクセスされた時に、少し強調されてフワッと動くアニメーション */
         details {
             border-bottom: 1px solid #e5e7eb;
             padding: 15px 0;
+            scroll-margin-top: 20px; /* スクロールした時に上に少し隙間を作る */
+            transition: background-color 0.5s ease;
         }
         details[open] {
             border-bottom: 1px solid #3b82f6;
+        }
+        /* 個別URLで指定されたFAQの背景を一瞬ハイライト */
+        details:target {
+            background-color: #f0f6ff;
         }
         summary {
             font-weight: bold;
@@ -80,7 +87,6 @@
     async function loadFAQ() {
         const faqList = document.getElementById('faq-list');
         try {
-            // 同一ディレクトリにある json を読み込む（キャッシュ対策のタイムスタンプ付き）
             const response = await fetch('./faq_data.json?t=' + new Date().getTime());
             if (!response.ok) throw new Error('データの取得に失敗しました');
             
@@ -92,8 +98,13 @@
                 return;
             }
             
-            data.forEach(item => {
+            // ★変更点：スプレッドシートの上から順に「1, 2, 3...」と連番のIDを自動で振る
+            data.forEach((item, index) => {
+                const faqId = index + 1; 
+                
                 const details = document.createElement('details');
+                details.id = 'faq-' + faqId; // 各FAQに id="faq-1" などを付与
+                
                 const summary = document.createElement('summary');
                 summary.textContent = item.question;
                 
@@ -105,12 +116,35 @@
                 details.appendChild(answerDiv);
                 faqList.appendChild(details);
             });
+
+            // ★新機能：URLの末尾に「#faq-数字」があるかチェックし、あれば自動で開いてスクロール
+            checkUrlHash();
+
         } catch (error) {
             console.error(error);
             faqList.innerHTML = '<p class="loading" style="color: #ef4444;">FAQの読み込みに失敗しました。</p>';
         }
     }
+
+    // URLのハッシュ（#）を解析して特定のFAQを開く関数
+    function checkUrlHash() {
+        const hash = window.location.hash; // URLの「#faq-1」などの部分を取得
+        if (hash) {
+            const targetDetails = document.querySelector(hash);
+            if (targetDetails && targetDetails.tagName === 'DETAILS') {
+                targetDetails.open = true; // アコーディオンを開く
+                
+                // 少しだけ遅らせて綺麗にスクロールさせる
+                setTimeout(() => {
+                    targetDetails.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 200);
+            }
+        }
+    }
+
     window.addEventListener('DOMContentLoaded', loadFAQ);
+    // ページを開いた後でURLのハッシュが切り替わった時にも動くようにする
+    window.addEventListener('hashchange', checkUrlHash);
 </script>
 
 </body>
