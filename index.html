@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>よくあるご質問｜快活CLUB</title>
+    <!-- 🌐 本家で使用されているフォントとアイコンを読み込み -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* ─── 本家公式CSS完全移植・最適化 ─── */
+        /* ─── 本家公式CSS完全移植 ─── */
         body {
             font-family: "Noto Sans JP", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
             line-height: 1.6em;
@@ -30,18 +31,17 @@
             top: 0px;
             width: 100%;
             min-width: 1250px;
-            height: 80px; /* 💡本家固定値 */
+            height: 80px;
             z-index: 100;
             display: flex;
             background: #ffffff;
             box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
         }
         
-        /* ロゴエリア：80pxの完全正方形 */
         header .logo {
             position: relative;
-            width: 80px; /* 💡本家固定値 */
-            height: 80px; /* 💡本家固定値 */
+            width: 80px;
+            height: 80px;
             z-index: 1;
         }
         header .logo a {
@@ -51,12 +51,11 @@
         }
         header .logo img {
             width: 100%;
-            height: 100%; /* 💡ヘッダーの縦幅と完全一致 */
+            height: 100%;
             display: block;
             object-fit: contain;
         }
 
-        /* 左寄せナビゲーション */
         header .menu {
             margin: 0;
             padding: 0 18px;
@@ -68,11 +67,11 @@
             position: relative;
             display: flex;
             align-items: center;
-            height: 80px; /* 💡ヘッダーと高さを統一 */
+            height: 80px;
             padding: 0 16px;
-            font-size: 16px; /* 💡15pxから本家指定の16px(1.6rem)へ修正 */
+            font-size: 16px;
             font-weight: bold;
-            color: #ec661b; /* 💡快活オレンジ */
+            color: #ec661b;
             text-decoration: none;
             transition: color 0.4s ease;
         }
@@ -80,10 +79,9 @@
             color: #000000;
         }
 
-        /* 右寄せブロック（完全右端に絶対配置固定） */
         header .menu-right {
             position: absolute;
-            right: 0px; /* 💡右端寄せ */
+            right: 0px;
             top: 0;
             bottom: 0;
             margin: auto;
@@ -115,13 +113,12 @@
             text-decoration: none;
         }
         header .menu-right .link a.btn-inquiry.btn-reservation {
-            background: #043491; /* 💡個室予約の専用紺 */
+            background: #043491;
         }
         header .menu-right .link a:hover {
             opacity: 0.8;
         }
 
-        /* SNSリンク群 */
         header .menu-right .sns {
             margin: 0;
             padding: 0 25px 0 0;
@@ -142,13 +139,13 @@
             text-decoration: none;
         }
 
-        /* ─── 2. 公式パンくずリスト ─── */
+        /* ─── 2. 公式パンくずリスト（透過グレーは維持） ─── */
         .breadcrumbs {
             position: absolute;
             left: 0px;
-            top: 80px; /* 💡ヘッダーのすぐ下に配置 */
+            top: 80px; /* ヘッダーの直下にジャスト配置 */
             width: 100%;
-            background: rgba(0, 0, 0, 0.4); /* 💡本家透過ブラック */
+            background: rgba(0, 0, 0, 0.4); /* ユーザーお気に入りの透過グレー */
             padding: 0.75em 1.2em;
             z-index: 98;
             margin: 0;
@@ -191,15 +188,17 @@
             display: none;
         }
 
-        /* ─── 3. 公式サブヘッダー（lower-visual高さを完全再現） ─── */
+        /* ─── 3. 公式サブヘッダー（隙間を完全消滅＋薄いグレーフィルターを全撤去） ─── */
         main.lower {
             position: relative;
             display: block;
-            padding-top: 80px; /* ヘッダー分の余白 */
+            padding-top: 80px; /* ヘッダーの高さ分の余白 */
         }
+        /* 💡本家と全く同じ「静的ブロック＋インラインパディング」構造に戻し、白い隙間を完全消滅させました */
         .lower-visual {
             position: relative;
-            padding-top: 300px; /* 💡本家CSS：これで背景帯のゆったりした縦幅を確保 */
+            padding-top: 300px; /* 本家公式のダイナミックな縦幅 */
+            box-sizing: border-box;
         }
         .lower-visual .bgi {
             position: absolute;
@@ -211,14 +210,8 @@
             background-size: cover;
             background-position: center top;
         }
-        /* 本家の文字視認性用うっすら暗転 */
-        .lower-visual::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.2);
-            z-index: 1;
-        }
+        /* ⚠️ご指摘通り、全体の薄い透過グレーフィルター（::before）は完全に削除しました！ */
+
         .lower-visual .title {
             position: absolute;
             width: 100%;
@@ -226,15 +219,18 @@
             top: 40%;
             left: 0;
             transform: translate(0, -50%);
-            font-size: 36px; /* 💡3.6rem */
+            font-size: 36px;
             font-weight: normal;
             color: #ffffff;
             text-align: center;
             z-index: 2;
             letter-spacing: 0.02em;
+            margin: 0;
+            /* 文字の輪郭をくっきりさせて本家同様の視認性を確保 */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
         }
 
-        /* ─── 4. メインコンテンツ（ご質問一覧） ─── */
+        /* ─── 4. メインコンテンツ ─── */
         .main-container {
             max-width: 1000px;
             margin: 60px auto;
@@ -243,7 +239,7 @@
         }
 
         h2.headline {
-            font-size: 28px; /* 💡2.8rem */
+            font-size: 28px;
             line-height: 1.6em;
             font-weight: bold;
             text-align: center;
@@ -373,7 +369,7 @@
         }
 
         .list-item {
-            background: #efefef; /* 💡本家質問リスト背景 */
+            background: #efefef;
             margin-bottom: 10px;
             padding: 0.85em 54px;
             border-radius: 0px;
@@ -415,6 +411,7 @@
 </head>
 <body>
 
+<!-- ─── 1. グローバルヘッダー ─── -->
 <header>
     <div class="logo">
         <a href="./">
@@ -442,6 +439,7 @@
     </nav>
 </header>
 
+<!-- ─── 2. サブヘッダー（本家HTML構造を完全トレースして隙間をシャットアウト） ─── -->
 <main class="lower">
     <nav class="breadcrumbs">
         <ol>
@@ -450,10 +448,11 @@
         </ol>
     </nav>
     <div class="lower-visual">
-        <figure class="bgi"></figure>
+        <div class="bgi"></div>
         <h1 class="title" id="dynamic-title">よくあるご質問</h1>
     </div>
     
+    <!-- 3. メインコンテンツ -->
     <div class="main-container" id="main-content">
         <p class="loading">データを読み込み中...</p>
     </div>
