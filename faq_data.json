@@ -2,600 +2,700 @@
   {
     "id": "faq-YMDK",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "これは質問ですか？",
     "answer": "それは質問ですが、これは回答です。"
   },
   {
     "id": "faq-k0s4",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "明日の天気はどうですか？",
     "answer": "明日になれば分かります。"
   },
   {
     "id": "faq-388f",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "パスワードを忘れました。",
     "answer": "思い出せるまでじっくり考えてみてください。"
   },
   {
     "id": "faq-u6Se",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "お腹が空きました。",
     "answer": "何かを食べるか、満腹になることをおすすめします。"
   },
   {
     "id": "faq-urZm",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "このサイトの目的は何ですか？",
     "answer": "この質問を表示することです。"
   },
   {
     "id": "faq-DUDv",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "右と左、どちらが右ですか？",
     "answer": "左ではない方が右です。"
   },
   {
     "id": "faq-p4g3",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "1+1の答えを教えてください。",
     "answer": "田んぼの「田」ではありません。2です。"
   },
   {
     "id": "faq-oIHD",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "ここはどこですか？",
     "answer": "あなたが今画面を見ている、まさにその場所です。"
   },
   {
     "id": "faq-GVtC",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "ログインできません。",
     "answer": "ログインしていない状態をお楽しみください。"
   },
   {
     "id": "faq-psgN",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "問い合わせ先はどこですか？",
     "answer": "今あなたが読んでいるこの場所が、行き止まりです。"
   },
   {
     "id": "faq-kFdI",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "息を吸うとどうなりますか？",
     "answer": "その後、吐きたくなります。"
   },
   {
     "id": "faq-Igpe",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "ボタンを押しても何も起きません。",
     "answer": "「何も起きない」という現象が、正常に発生しています。"
   },
   {
     "id": "faq-S6jt",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "好きな食べ物は何ですか？",
     "answer": "サーバーなので電気を好みますが、食べられません。"
   },
   {
     "id": "faq-l8nI",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "眠いときはどうすればいいですか？",
     "answer": "目を閉じると、世界が暗くなって眠りやすくなります。"
   },
   {
     "id": "faq-F4mq",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "ページの読み込みが遅いです。",
     "answer": "待つという行為を通じて、精神が鍛えられている最中です。"
   },
   {
     "id": "faq-tiTj",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "このFAQは役に立ちますか？",
     "answer": "役に立たないという点において、非常に役立っています。"
   },
   {
     "id": "faq-lisF",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "猫派ですか？犬派ですか？",
     "answer": "どちらかと言えば、ルーター派です。"
   },
   {
     "id": "faq-xAH1",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "文字が小さくて読めません。",
     "answer": "画面に顔を限界まで近づけてみてください。"
   },
   {
     "id": "faq-0rU3",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "現在時刻を教えてください。",
     "answer": "あなたが時計を見た、その時間です。"
   },
   {
     "id": "faq-lKE7",
     "category": "catA",
+    "categoryName": "カテゴリA",
     "question": "バグを見つけました。",
     "answer": "それはバグではなく、最先端の「仕様」です。"
   },
   {
     "id": "faq-QDKt",
     "category": "catB",
+    "categoryName": "カテゴリB",
     "question": "スクロールが止まりません。",
     "answer": "指を画面から離すことで、奇跡的に止まります。"
   },
   {
     "id": "faq-Bwg7",
     "category": "catB",
+    "categoryName": "カテゴリB",
     "question": "ここにあるリンクはクリックできますか？",
     "answer": "クリックは自由ですが、どこにも繋がっていません。"
   },
   {
     "id": "faq-XotV",
     "category": "catB",
+    "categoryName": "カテゴリB",
     "question": "有料ですか？",
     "answer": "あなたの貴重な時間を数秒ほど消費しております。"
   },
   {
     "id": "faq-5tdK",
     "category": "catB",
+    "categoryName": "カテゴリB",
     "question": "戻るボタンを押すとどうなりますか？",
     "answer": "一つ前の、どうでもいい画面に戻ります。"
   },
   {
     "id": "faq-sUn4",
     "category": "catB",
+    "categoryName": "カテゴリB",
     "question": "規約に同意したくないです。",
     "answer": "同意しないという強い意志を、私たちは尊重します（ただし進めません）。"
   },
   {
     "id": "faq-tvFy",
     "category": "catB",
+    "categoryName": "カテゴリB",
     "question": "画面が真っ白です。",
     "answer": "心の綺麗な人にだけ見える、次世代のUIです。"
   },
   {
     "id": "faq-xpCB",
     "category": "catB",
+    "categoryName": "カテゴリB",
     "question": "卵が先ですか？鶏が先ですか？",
     "answer": "メニューに先に載っている方です。"
   },
   {
     "id": "faq-uUSi",
     "category": "catB",
+    "categoryName": "カテゴリB",
     "question": "地球は丸いですか？",
     "answer": "少なくとも、あなたのディスプレイよりは丸いです。"
   },
   {
     "id": "faq-W6QX",
     "category": "catB",
+    "categoryName": "カテゴリB",
     "question": "検索機能が機能していません。",
     "answer": "探さないことで、見つかる幸せもあります。"
   },
   {
     "id": "faq-0WKl",
     "category": "catB",
+    "categoryName": "カテゴリB",
     "question": "おみくじを引かせてください。",
     "answer": "【吉】特に何も起きない平穏な一日でしょう。"
   },
   {
     "id": "faq-nusF",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "喉が渇きました。",
     "answer": "水分を摂取するチャンスです。"
   },
   {
     "id": "faq-CH9j",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "富士山の高さは？",
     "answer": "登ってみると、かなり高いことが分かります。"
   },
   {
     "id": "faq-mJcC",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "このデータはいつ更新されました加？",
     "answer": "さっき読んだ時よりも、今の方が新しいです。"
   },
   {
     "id": "faq-ZNJR",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "なぜ空は青いのですか？",
     "answer": "ピンクだと落ち着かないからです。"
   },
   {
     "id": "faq-Jz5a",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "画面を閉じたいです。",
     "answer": "右上のバツ印か、端末の電源ボタンがあなたを待っています。"
   },
   {
     "id": "faq-jqj7",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "英語で話しかけてもいいですか？",
     "answer": "OK, but I will reply in Japanese."
   },
   {
     "id": "faq-J6mU",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "音声入力は使えますか？",
     "answer": "画面に向かって大声で叫んでみてください。何も起きません。"
   },
   {
     "id": "faq-QBVW",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "今日は何曜日ですか？",
     "answer": "燃えるゴミの日か、そうではない日のどちらかです。"
   },
   {
     "id": "faq-1bjv",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "視力が悪くなりました。",
     "answer": "ブルーライトがあなたを優しく包み込んでいる証拠です。"
   },
   {
     "id": "faq-owmb",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "スマートフォンでも見られますか？",
     "answer": "今スマホで見ているなら、見られています。"
   },
   {
     "id": "faq-tZdB",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "AIですか？",
     "answer": "私は「愛（AI）」を込めて作られたただの文字列です。"
   },
   {
     "id": "faq-snyQ",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "宝くじに当たりますか？",
     "answer": "買わなければ、絶対に外れるという安心感を得られます。"
   },
   {
     "id": "faq-36Sl",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "お腹が鳴りました。",
     "answer": "胃が自己主張を始めています。"
   },
   {
     "id": "faq-SPof",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "コーヒーと紅茶、どちらが好きですか？",
     "answer": "緑茶の気分です。"
   },
   {
     "id": "faq-piEw",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "このサイトのフォントは何ですか？",
     "answer": "目で見えるタイプのフォントです。"
   },
   {
     "id": "faq-WVBU",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "運動したほうがいいですか？",
     "answer": "明日から始めましょう。"
   },
   {
     "id": "faq-TNxW",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "どこからが夜ですか？",
     "answer": "眠くなったら夜です。"
   },
   {
     "id": "faq-Aqs2",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "暗証番号を4桁で教えてください。",
     "answer": "「1234」ではないことだけは確かです。"
   },
   {
     "id": "faq-qU2H",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "髪の毛を切りたいです。",
     "answer": "美容室に行くか、そのまま伸ばしてギネスを目指してください。"
   },
   {
     "id": "faq-OoB8",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "ちょうど半分まで来ましたね。",
     "answer": "はい、あと半分も同じような内容が続きます。"
   },
   {
     "id": "faq-DMK4",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "ユーザー名に使用できない文字はありますか？",
     "answer": "あなたの心の中にある、目に見えない文字は使えません。"
   },
   {
     "id": "faq-CUra",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "どちら様ですか？",
     "answer": "通りすがりの、ただのデモデータです。"
   },
   {
     "id": "faq-Phbe",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "推しは誰ですか？",
     "answer": "このFAQを作成した開発者です。"
   },
   {
     "id": "faq-wvHH",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "靴ひもがほどけました。",
     "answer": "結び直すか、踏んで転ぶかの二択です。"
   },
   {
     "id": "faq-3FQB",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "1分は何秒ですか？",
     "answer": "退屈な時間を過ごしているときは、1時間くらいに感じられます。"
   },
   {
     "id": "faq-OtAs",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "まばたきの頻度は？",
     "answer": "この質問を読んでいる間に、おそらく2回はしています。"
   },
   {
     "id": "faq-zqaR",
     "category": "catC",
+    "categoryName": "カテゴリC",
     "question": "夏は暑いですか？",
     "answer": "冬に比べれば、驚くほど暑いです。"
   },
   {
     "id": "faq-YQys",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "この回答は自動生成ですか？",
     "answer": "手動で自動っぽいものを目指しました。"
   },
   {
     "id": "faq-weL2",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "漢字が読めません。",
     "answer": "ひらがなで かくと よめるかも しれません。"
   },
   {
     "id": "faq-wcVJ",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "宇宙の果てには何がありますか？",
     "answer": "「ここまで」と書かれた看板があるかもしれません。"
   },
   {
     "id": "faq-fAvg",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "通知がうるさいです。",
     "answer": "音量をゼロにすると、静寂が訪れます。"
   },
   {
     "id": "faq-8se4",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "領収書は出ますか？",
     "answer": "心の領収書なら、いつでも発行いたします。"
   },
   {
     "id": "faq-fLR7",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "カレーは飲み物ですか？",
     "answer": "噛んで食べることを推奨します。"
   },
   {
     "id": "faq-vfEY",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "部屋が散らかっています。",
     "answer": "物が定位置を拒否している状態です。"
   },
   {
     "id": "faq-jk09",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "印刷したいです。",
     "answer": "画面に紙を押し当てて鉛筆でなぞってください。"
   },
   {
     "id": "faq-wGU5",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "ここをクリックするとどうなりますか？",
     "answer": "クリックされたというログが、どこかで静かに記録されます。"
   },
   {
     "id": "faq-zhrP",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "傘を持ってきた日に限って雨が降りません。",
     "answer": "あなたのおかげで、街の平和が守られました。"
   },
   {
     "id": "faq-4cR7",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "利用料金は発生しますか？",
     "answer": "通信会社へのパケット代が発生しています。"
   },
   {
     "id": "faq-yf0Q",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "このボタンの色は何色ですか？",
     "answer": "カラーコードを解析してみてください。"
   },
   {
     "id": "faq-QgKL",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "宿題が終わりません。",
     "answer": "終わらない宿題はありませんが、終わらせないことは可能です。"
   },
   {
     "id": "faq-r4Aq",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "パソコンが熱いです。",
     "answer": "パソコンも一生懸命、どうでもいい処理を頑張っています。"
   },
   {
     "id": "faq-w99b",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "100円ショップで200円の商品を見つけました。",
     "answer": "少し贅沢な気分を味わってください。"
   },
   {
     "id": "faq-I1UN",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "ログインボーナスはありますか？",
     "answer": "今日もサイトにアクセスできたという「達成感」を差し上げます。"
   },
   {
     "id": "faq-VLEW",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "推奨環境を教えてください。",
     "answer": "あなたの穏やかで広い心が推奨されます。"
   },
   {
     "id": "faq-VH0i",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "お祝いをしてください。",
     "answer": "おめでとうございます！何のお祝いかは分かりませんが！"
   },
   {
     "id": "faq-I4q0",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "画面がチカチカします。",
     "answer": "激しくまばたきをして、同期を取ってみてください。"
   },
   {
     "id": "faq-7UZV",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "退会したいです。",
     "answer": "入会していないので、退会する宇宙も存在しません。"
   },
   {
     "id": "faq-lsiT",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "塩分を控えたいです。",
     "answer": "海水を飲むのをやめましょう。"
   },
   {
     "id": "faq-gK6C",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "秘密を教えてください。",
     "answer": "実は、このFAQは100個まであります。"
   },
   {
     "id": "faq-nAHT",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "怒っていますか？",
     "answer": "テキストデータなので、感情の起伏が不器用です。"
   },
   {
     "id": "faq-BDa6",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "氷はなぜ冷たいですか？",
     "answer": "熱かったら、それはお湯だからです。"
   },
   {
     "id": "faq-rcBN",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "バージョン情報を教えてください。",
     "answer": "Version \"Domo-De-I-To-Omoimasu\" です。"
   },
   {
     "id": "faq-lemE",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "深呼吸のコツは？",
     "answer": "吐いてから吸う、ただそれだけです。"
   },
   {
     "id": "faq-ewJm",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "夜更かししてしまいます。",
     "answer": "早く寝ると、早く朝が来てしまう恐怖と戦っているのですね。"
   },
   {
     "id": "faq-cQbN",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "データの保存先はどこですか？",
     "answer": "あなたのブラウザのキャッシュという、儚い記憶の中です。"
   },
   {
     "id": "faq-XcT8",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "右クリックができません。",
     "answer": "左クリックを2回しても、右クリックにはなりません。"
   },
   {
     "id": "faq-23fa",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "信号待ちが長いです。",
     "answer": "人生の休憩時間だと思って、お留守番してください。"
   },
   {
     "id": "faq-XUZa",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "どこまでスクロールすれば終わりますか？",
     "answer": "あと少しで、底が見えます。"
   },
   {
     "id": "faq-jU7X",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "アプリ版はありますか？",
     "answer": "あなたの脳内にインストールすれば、いつでも起動可能です。"
   },
   {
     "id": "faq-uvOQ",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "ヘルプを開いたのにヘルプされません。",
     "answer": "セルフサービス精神の向上が見込めるヘルプです。"
   },
   {
     "id": "faq-VmCl",
     "category": "catD",
+    "categoryName": "カテゴリD",
     "question": "爪が伸びるのが早いです。",
     "answer": "健康的に生きている証拠です。爪切りをご用意ください。"
   },
   {
     "id": "faq-k3RB",
     "category": "catE",
+    "categoryName": "カテゴリE",
     "question": "広告を非表示にしたいです。",
     "answer": "そもそも広告を載せる予算がありませんでした。"
   },
   {
     "id": "faq-tUeQ",
     "category": "catE",
+    "categoryName": "カテゴリE",
     "question": "週末の予定がありません。",
     "answer": "予定がないという最高の予定が入っています。"
   },
   {
     "id": "faq-c7tb",
     "category": "catE",
+    "categoryName": "カテゴリE",
     "question": "目が合いましたね。",
     "answer": "カメラの向こう側を覗かないでください。"
   },
   {
     "id": "faq-IsdW",
     "category": "catE",
+    "categoryName": "カテゴリE",
     "question": "エラーコード「000」とは何ですか？",
     "answer": "「特に問題はないが、何か言いたかった」コードです。"
   },
   {
     "id": "faq-T7v9",
     "category": "catE",
+    "categoryName": "カテゴリE",
     "question": "戻り方がわかりません。",
     "answer": "振り返らず、前だけを見て進んでください。"
   },
   {
     "id": "faq-Tq6r",
     "category": "catE",
+    "categoryName": "カテゴリE",
     "question": "最後の質問は何ですか？",
     "answer": "100番目の質問です。"
   },
   {
     "id": "faq-dAzM",
     "category": "catE",
+    "categoryName": "カテゴリE",
     "question": "あといくつ残っていますか？",
     "answer": "これを含めてあと3つです。"
   },
   {
     "id": "faq-Wkpe",
     "category": "catE",
+    "categoryName": "カテゴリE",
     "question": "ついにここまできましたね。",
     "answer": "よくぞこの無意味な砂漠をサバイブしてくださいました。"
   },
   {
     "id": "faq-NGxj",
     "category": "catE",
+    "categoryName": "カテゴリE",
     "question": "これで終わりですか？",
     "answer": "はい、終わりです。"
   }
