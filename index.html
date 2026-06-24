@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
     <style>
         body {
             font-family: "Noto Sans JP", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
@@ -21,7 +20,6 @@
         * {
             box-sizing: border-box;
         }
-
         header {
             position: fixed;
             left: 0px;
@@ -34,7 +32,6 @@
             background: #ffffff;
             box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
         }
-        
         header .logo {
             position: relative;
             width: 80px;
@@ -52,7 +49,6 @@
             display: block;
             object-fit: contain;
         }
-
         header .menu {
             margin: 0;
             padding: 0 18px;
@@ -75,7 +71,6 @@
         header .menu > li > a:hover {
             color: #000000;
         }
-
         header .menu-right {
             position: absolute;
             right: 0px;
@@ -115,7 +110,6 @@
         header .menu-right .link a:hover {
             opacity: 0.8;
         }
-
         header .menu-right .sns {
             margin: 0;
             padding: 0 25px 0 0;
@@ -135,7 +129,6 @@
             color: #ec661b;
             text-decoration: none;
         }
-
         .breadcrumbs {
             position: absolute;
             left: 0px;
@@ -185,7 +178,6 @@
         .breadcrumbs li:last-child::after {
             display: none;
         }
-
         main.lower {
             position: relative;
             display: block;
@@ -206,7 +198,6 @@
             background-size: cover;
             background-position: center;
         }
-
         .lower-visual .title {
             position: absolute;
             width: 100%;
@@ -221,14 +212,12 @@
             text-align: center;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
         }
-
         .main-container {
             max-width: 1000px;
             margin: 60px auto;
             padding: 0 20px;
             box-sizing: border-box;
         }
-
         .category-nav {
             display: flex;
             justify-content: center;
@@ -256,9 +245,9 @@
             background-color: #ec661b;
             color: #fff;
         }
-
         .faq-group {
             margin-bottom: 50px;
+            scroll-margin-top: 100px;
         }
         .category-heading {
             font-size: 24px;
@@ -268,14 +257,12 @@
             padding-left: 15px;
             border-left: 6px solid #ec661b;
         }
-
         .loading {
             text-align: center;
             color: #666;
             font-style: italic;
             padding: 40px;
         }
-
         .qa-card {
             display: flex;
             flex-direction: column;
@@ -296,7 +283,6 @@
         .box-a {
             border-left: 6px solid #000000;
         }
-        
         .prefix-q, .prefix-a {
             font-size: 24px;
             font-weight: 900;
@@ -307,7 +293,6 @@
         }
         .prefix-q { color: #ec661b; }
         .prefix-a { color: #000000; }
-
         .text-q {
             font-size: 18px;
             font-weight: bold;
@@ -321,7 +306,6 @@
             margin: 0;
             width: 100%;
         }
-
         .survey-area {
             border-top: 1px solid #fff;
             background: #efefef;
@@ -365,7 +349,6 @@
             padding: 10px 30px;
             border-radius: 4px;
         }
-
         .btn-back {
             display: block;
             width: 100%;
@@ -385,7 +368,6 @@
         .btn-back:hover {
             background-color: #d65d13;
         }
-
         .list-item {
             background: #efefef;
             margin-bottom: 10px;
@@ -533,34 +515,42 @@
                 return;
             }
 
-            const categories = [...new Set(data.map(item => item.category))];
+            const catMap = {};
+            data.forEach(item => {
+                if (item.category && item.categoryName) {
+                    catMap[item.category] = item.categoryName;
+                }
+            });
 
             const categoryNav = document.createElement('div');
             categoryNav.className = 'category-nav';
-            categories.forEach(cat => {
+            
+            Object.keys(catMap).forEach(catId => {
                 const navLink = document.createElement('a');
                 navLink.className = 'category-nav-link';
-                navLink.textContent = cat;
+                navLink.textContent = catMap[catId];
                 navLink.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const targetSection = document.getElementById(`group-${cat}`);
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    const targetSection = document.getElementById(`group-${catId}`);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
                 });
                 categoryNav.appendChild(navLink);
             });
             mainContent.appendChild(categoryNav);
 
-            categories.forEach(cat => {
+            Object.keys(catMap).forEach(catId => {
                 const groupDiv = document.createElement('div');
                 groupDiv.className = 'faq-group';
-                groupDiv.id = `group-${cat}`;
+                groupDiv.id = `group-${catId}`;
 
                 const catHeader = document.createElement('h3');
                 catHeader.className = 'category-heading';
-                catHeader.textContent = cat;
+                catHeader.textContent = catMap[catId];
                 groupDiv.appendChild(catHeader);
 
-                const faqItems = data.filter(item => item.category === cat);
+                const faqItems = data.filter(item => item.category === catId);
                 faqItems.forEach(item => {
                     const div = document.createElement('div');
                     div.className = 'list-item';
