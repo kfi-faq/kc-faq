@@ -100,15 +100,28 @@
             transform: scale(1.1);
         }
 
-        /* ─── 快活CLUB完全再現：メインビジュアル帯（ダークブラウン） ─── */
+        /* ─── 快活CLUB完全再現：メインビジュアル帯（背景画像版） ─── */
         .kaikatsu-sub-header {
-            background-color: #2b1f1d; /* シックな高級感のあるダークブラウン */
+            background-image: url("lower-visual.jpg"); /* アップロードした画像を指定 */
+            background-size: cover; /* 画像を隙間なく引き伸ばす */
+            background-position: center; /* 画像の中心を基準にする */
             color: #ffffff;
-            padding: 25px 20px;
+            padding: 35px 20px; /* 本物に寄せて少し上下の幅を広げました */
+            position: relative;
+        }
+        /* 文字を読みやすくするためのうっすらとした暗いフィルター */
+        .kaikatsu-sub-header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* 50%の黒透明フィルター */
+            z-index: 1;
         }
         .sub-header-inner {
             max-width: 1000px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2; /* 文字がフィルターの上にくるように調整 */
         }
         .breadcrumb {
             font-size: 12px;
