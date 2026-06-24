@@ -8,33 +8,73 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
     <style>
-        body {
-            font-family: "Noto Sans JP", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+        @charset "utf-8";
+        html {
             line-height: 1.6em;
-            background-color: #ffffff;
-            color: #000000;
-            margin: 0;
-            padding: 0;
+            min-width: 1200px;
         }
         * {
+            -webkit-box-sizing: border-box;
             box-sizing: border-box;
         }
-
+        html *:not(br):not(span):not(strong):not(em):not(i) {
+            font-size: 1.4rem;
+            line-height: 1.6em;
+        }
+        .font-en {
+            font-family: "Muli", sans-serif;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+        .font-color {
+            color: #ec661b;
+        }
+        .wrap {
+            position: relative;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        .wrap-s {
+            max-width: 1200px;
+            padding: 0 100px;
+            margin: 0 auto;
+        }
+        .wrap-s.pg-top {
+            padding-top: 30px;
+        }
+        .sp {
+            display: none;
+        }
+        main {
+            position: relative;
+            display: block;
+            padding-top: 80px;
+            overflow: hidden;
+        }
         header {
             position: fixed;
             left: 0px;
             top: 0px;
             width: 100%;
-            min-width: 320px;
+            min-width: 1250px;
             height: 80px;
             z-index: 100;
+            display: -webkit-flex;
             display: flex;
-            background: #ffffff;
+            -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
             box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
         }
-        
+        header::before {
+            background: #fff;
+            content: "";
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 80px;
+            z-index: 1;
+        }
         header .logo {
             position: relative;
             width: 80px;
@@ -52,30 +92,33 @@
             display: block;
             object-fit: contain;
         }
-
         header .menu {
             margin: 0;
             padding: 0 18px;
+            z-index: 1;
             list-style: none;
             display: flex;
-            z-index: 1;
         }
         header .menu > li > a {
             position: relative;
+            display: -webkit-flex;
             display: flex;
+            -webkit-align-items: center;
             align-items: center;
             height: 80px;
             padding: 0 16px;
-            font-size: 16px;
+            font-size: 1.6rem;
             font-weight: bold;
             color: #ec661b;
-            text-decoration: none;
+            -webkit-transition: color 0.4s ease;
             transition: color 0.4s ease;
+            z-index: 1;
+            text-decoration: none;
         }
-        header .menu > li > a:hover {
-            color: #000000;
+        header .menu > li > a:hover,
+        header .menu > li.menu-hover.active > a {
+            color: #000;
         }
-
         header .menu-right {
             position: absolute;
             right: 0px;
@@ -84,9 +127,9 @@
             margin: auto;
             height: 50px;
             width: auto;
+            z-index: 1;
             display: flex;
             align-items: center;
-            z-index: 1;
         }
         header .menu-right .link {
             margin: 0;
@@ -98,27 +141,29 @@
         header .menu-right .link li {
             margin: 0 8px;
         }
+        header .menu-right .link a {
+            font-size: 1.3rem;
+            line-height: 18px;
+            white-space: nowrap;
+            text-decoration: none;
+        }
         header .menu-right .link a.btn-inquiry {
             display: block;
-            background: #000000;
+            background: #000;
             padding: 0 1.2em;
-            font-size: 12px;
+            font-size: 1.2rem;
             line-height: 32px;
             font-weight: bold;
-            color: #ffffff;
+            color: #fff;
+            -webkit-border-radius: 16px;
             border-radius: 16px;
-            text-decoration: none;
         }
         header .menu-right .link a.btn-inquiry.btn-reservation {
             background: #043491;
         }
-        header .menu-right .link a:hover {
-            opacity: 0.8;
-        }
-
         header .menu-right .sns {
             margin: 0;
-            padding: 0 25px 0 0;
+            padding-right: 25px;
             list-style: none;
             display: flex;
             align-items: center;
@@ -126,22 +171,21 @@
         header .menu-right .sns li {
             margin-right: 15px;
         }
-        header .menu-right .sns li:last-child {
-            margin-right: 0;
-        }
         header .menu-right .sns a {
-            font-size: 24px;
+            font-size: 2.4rem;
             line-height: 1em;
             color: #ec661b;
             text-decoration: none;
         }
-
+        #menu-button {
+            display: none;
+        }
         .breadcrumbs {
             position: absolute;
             left: 0px;
             top: 80px;
             width: 100%;
-            background: rgba(0, 0, 0, 0.4); 
+            background: rgba(0, 0, 0, 0.4);
             padding: 10.5px 16.8px;
             z-index: 98;
             margin: 0;
@@ -159,11 +203,11 @@
             position: relative;
             font-size: 12px;
             line-height: 1.6em;
-            color: #ffffff;
+            color: #fff;
         }
         .breadcrumbs li a {
             font-size: 12px;
-            color: #ffffff;
+            color: #fff;
             text-decoration: none;
         }
         .breadcrumbs li a:hover {
@@ -178,14 +222,13 @@
             width: 0.4em;
             height: 0.4em;
             margin-top: -0.2em;
-            border-top: solid 1px #ffffff;
-            border-right: solid 1px #ffffff;
+            border-top: solid 1px #fff;
+            border-right: solid 1px #fff;
             transform: rotate(45deg);
         }
         .breadcrumbs li:last-child::after {
             display: none;
         }
-
         main.lower {
             position: relative;
             display: block;
@@ -206,7 +249,6 @@
             background-size: cover;
             background-position: center;
         }
-
         .lower-visual .title {
             position: absolute;
             width: 100%;
@@ -217,18 +259,17 @@
             transform: translate(0, -50%);
             font-size: 36px;
             font-weight: normal;
-            color: #ffffff;
+            color: #fff;
             text-align: center;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+            margin: 0;
         }
-
         .main-container {
             max-width: 1000px;
             margin: 60px auto;
             padding: 0 20px;
             box-sizing: border-box;
         }
-
         .category-nav {
             display: flex;
             justify-content: center;
@@ -252,11 +293,9 @@
             transition: all 0.3s;
             cursor: pointer;
         }
-        @media (hover: hover) {
-            .category-nav-link:hover {
-                background-color: #ec661b;
-                color: #fff;
-            }
+        .category-nav-link:hover {
+            background-color: #ec661b;
+            color: #fff;
         }
         .faq-group {
             margin-bottom: 50px;
@@ -298,7 +337,6 @@
         .box-a {
             border-left: 6px solid #000000;
         }
-        
         .prefix-q, .prefix-a {
             font-size: 24px;
             font-weight: 900;
@@ -309,7 +347,6 @@
         }
         .prefix-q { color: #ec661b; }
         .prefix-a { color: #000000; }
-
         .text-q {
             font-size: 18px;
             font-weight: bold;
@@ -323,7 +360,6 @@
             margin: 0;
             width: 100%;
         }
-
         .survey-area {
             border-top: 1px solid #fff;
             background: #efefef;
@@ -367,7 +403,6 @@
             padding: 10px 30px;
             border-radius: 4px;
         }
-
         .btn-back {
             display: block;
             width: 100%;
@@ -387,7 +422,6 @@
         .btn-back:hover {
             background-color: #d65d13;
         }
-
         .list-item {
             background: #efefef;
             margin-bottom: 10px;
@@ -430,65 +464,204 @@
             border-radius: 50%;
             font-family: 'Arial Black', sans-serif;
         }
+        .sp-nav {
+            display: none;
+        }
 
         @media screen and (max-width: 768px) {
+            html {
+                min-width: 100%;
+            }
+            html *:not(br):not(span):not(strong):not(em):not(i) {
+                font-size: 1.4rem;
+            }
             header {
                 height: 60px;
                 min-width: 100%;
+            }
+            header::before {
+                height: 60px;
             }
             header .logo {
                 width: 60px;
                 height: 60px;
             }
-            header .menu, header .menu-right {
+            header nav, header .menu, header .menu-right {
                 display: none !important;
             }
-            .sp-header-right {
+            header .sp {
                 display: flex;
-                height: 100%;
-                margin-left: auto;
             }
-            .sp-btn {
-                display: flex;
+            header .btn-reservation {
+                position: absolute;
+                right: 164px;
+                top: 0;
+                background: #043491;
+                width: 66px;
+                height: 60px;
                 align-items: center;
                 justify-content: center;
                 text-align: center;
                 font-size: 9px;
                 font-weight: bold;
                 color: #ffffff;
-                text-decoration: none;
                 line-height: 1.3em;
-                padding: 0 6px;
                 letter-spacing: -0.05em;
+                z-index: 2;
             }
-            .sp-btn-reserve {
-                background: #043491;
-                width: 66px;
-            }
-            .sp-btn-contact {
+            header .btn-inquiry {
+                position: absolute;
+                right: 104px;
+                top: 0;
                 background: #000000;
                 width: 60px;
+                height: 60px;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 9px;
+                font-weight: bold;
+                color: #ffffff;
+                line-height: 1.3em;
+                letter-spacing: -0.05em;
+                z-index: 2;
             }
-            .sp-btn-search {
+            header .btn-search {
+                position: absolute;
+                right: 50px;
+                top: 0;
                 background: #f4e827;
-                color: #000000;
                 width: 54px;
+                height: 60px;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 9px;
+                font-weight: bold;
+                color: #000000;
+                line-height: 1.3em;
+                letter-spacing: -0.05em;
+                z-index: 2;
             }
-            .sp-menu-trigger {
+            header .btn-reservation a, header .btn-inquiry a, header .btn-search a {
+                color: inherit;
+                text-decoration: none;
+                display: block;
+            }
+            #menu-button {
+                position: absolute;
+                right: 0;
+                top: 0;
                 background: #ffffff;
                 width: 50px;
+                height: 60px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                gap: 4px;
                 border-left: 1px solid #e1e8ed;
+                cursor: pointer;
+                z-index: 2;
+                padding: 0;
             }
-            .sp-menu-trigger span {
+            #menu-button div {
                 display: block;
                 width: 20px;
-                height: 2px;
+                height: 1.5px;
                 background: #000000;
+                margin: 2px 0;
+                transition: all 0.3s ease;
+            }
+            #menu-button p {
+                display: none;
+            }
+            #menu-button.active div:nth-child(1) {
+                transform: translateY(5.5px) rotate(45deg);
+                width: 22px;
+            }
+            #menu-button.active div:nth-child(2) {
+                opacity: 0;
+            }
+            #menu-button.active div:nth-child(3) {
+                transform: translateY(-5.5px) rotate(-45deg);
+                width: 22px;
+            }
+            .sp-nav {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background-color: #f4f4f4;
+                z-index: 99;
+                display: none;
+                flex-direction: column;
+                overflow-y: auto;
+            }
+            .sp-nav.active {
+                display: flex;
+            }
+            .sp-nav-main {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                background-color: #ffffff;
+            }
+            .sp-nav-main li {
+                border-bottom: 1px solid #e3e3e3;
+            }
+            .sp-nav-main li a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 25px;
+                font-size: 15px;
+                font-weight: bold;
+                color: #000000;
+                text-decoration: none;
+            }
+            .sp-nav-main li a .plus {
+                font-size: 20px;
+                font-weight: bold;
+                color: #000000;
+            }
+            .sp-nav-sub {
+                border-bottom: 1px solid #e3e3e3;
+                background-color: #ffffff;
+                margin-top: 15px;
+            }
+            .sp-nav-sub a {
+                display: flex;
+                align-items: center;
+                padding: 20px 25px;
+                font-size: 14px;
+                color: #000000;
+                text-decoration: none;
+                font-weight: bold;
+            }
+            .sp-nav-sub a i {
+                font-size: 16px;
+                margin-right: 10px;
+                color: #ffffff;
+                background: #000000;
+                width: 22px;
+                height: 22px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .sp-nav-sns {
+                display: flex;
+                justify-content: center;
+                gap: 35px;
+                padding: 40px 20px;
+                background-color: #f4f4f4;
+            }
+            .sp-nav-sns a {
+                font-size: 36px;
+                color: #ec661b;
+                text-decoration: none;
             }
             main.lower {
                 padding-top: 60px;
@@ -632,14 +805,28 @@
             </ul>
         </div>
     </nav>
-    <div class="sp-header-right">
-        <a href="https://reservation.kaikatsu.jp/" target="_blank" class="sp-btn sp-btn-reserve">鍵付<br>完全個室<br>WEB予約</a>
-        <a href="https://www.kaikatsu.jp/contact/" target="_blank" class="sp-btn sp-btn-contact">お問い<br>合わせ</a>
-        <a href="https://www.kaikatsu.jp/shop/" target="_blank" class="sp-btn sp-btn-search">店舗検索</a>
-        <div class="sp-menu-trigger">
-            <span></span>
-            <span></span>
-            <span></span>
+    <div class="sp btn-reservation"><a href="https://reservation.kaikatsu.jp/" target="_blank">鍵付<br>完全個室<br>WEB予約</a></div>
+    <div class="sp btn-inquiry"><a href="https://www.kaikatsu.jp/contact/" target="_blank">お問い<br>合わせ</a></div>
+    <div class="sp btn-search"><a href="https://www.kaikatsu.jp/shop/" target="_blank">店舗検索</a></div>
+    <div id="menu-button">
+        <span></span>
+        <span></span>
+        <span></span>
+        <p>MENU</p>
+    </div>
+    <div class="sp-nav" id="sp-nav">
+        <ul class="sp-nav-main">
+            <li><a href="https://www.kaikatsu.jp/guide/" target="_blank">はじめての方</a></li>
+            <li><a href="https://www.kaikatsu.jp/enjoy/" target="_blank">快活CLUBのサービス <span class="plus">＋</span></a></li>
+            <li><a href="https://www.kaikatsu.jp/food/" target="_blank">お食事メニュー</a></li>
+        </ul>
+        <div class="sp-nav-sub">
+            <a href="https://www.kaikatsu.jp/contact/" target="_blank"><i class="fas fa-question"></i> お問い合わせ</a>
+        </div>
+        <div class="sp-nav-sns">
+            <a href="https://twitter.com/kaikatsuclub_jp" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/kaikatsu.jp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/kaikatsuclub_jp/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
 </header>
@@ -793,11 +980,11 @@
 
     window.addEventListener('DOMContentLoaded', () => {
         loadFAQ();
-        const trigger = document.querySelector('.sp-menu-trigger');
+        const menuBtn = document.getElementById('menu-button');
         const spNav = document.getElementById('sp-nav');
-        if (trigger && spNav) {
-            trigger.addEventListener('click', () => {
-                trigger.classList.toggle('active');
+        if (menuBtn && spNav) {
+            menuBtn.addEventListener('click', () => {
+                menuBtn.classList.toggle('active');
                 spNav.classList.toggle('active');
                 document.body.style.overflow = spNav.classList.contains('active') ? 'hidden' : '';
             });
