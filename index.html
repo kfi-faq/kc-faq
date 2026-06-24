@@ -10,17 +10,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         @charset "utf-8";
-        html {
-            line-height: 1.6em;
-            min-width: 1200px;
-        }
         * {
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
         }
-        html *:not(br):not(span):not(strong):not(em):not(i) {
-            font-size: 1.4rem;
+        body {
+            font-family: "Noto Sans JP", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
             line-height: 1.6em;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
         }
         .font-en {
             font-family: "Muli", sans-serif;
@@ -30,38 +30,15 @@
         .font-color {
             color: #ec661b;
         }
-        .wrap {
-            position: relative;
-            max-width: 1440px;
-            margin: 0 auto;
-        }
-        .wrap-s {
-            max-width: 1200px;
-            padding: 0 100px;
-            margin: 0 auto;
-        }
-        .wrap-s.pg-top {
-            padding-top: 30px;
-        }
-        .sp {
-            display: none;
-        }
-        main {
-            position: relative;
-            display: block;
-            padding-top: 80px;
-            overflow: hidden;
-        }
         header {
             position: fixed;
             left: 0px;
             top: 0px;
             width: 100%;
-            min-width: 1250px;
-            height: 80px;
             z-index: 100;
             display: -webkit-flex;
             display: flex;
+            background: #ffffff;
             -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
             box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
         }
@@ -72,14 +49,11 @@
             left: 0px;
             top: 0px;
             width: 100%;
-            height: 80px;
             z-index: 1;
         }
         header .logo {
             position: relative;
-            width: 80px;
-            height: 80px;
-            z-index: 1;
+            z-index: 2;
         }
         header .logo a {
             display: block;
@@ -95,7 +69,7 @@
         header .menu {
             margin: 0;
             padding: 0 18px;
-            z-index: 1;
+            z-index: 2;
             list-style: none;
             display: flex;
         }
@@ -105,18 +79,15 @@
             display: flex;
             -webkit-align-items: center;
             align-items: center;
-            height: 80px;
             padding: 0 16px;
-            font-size: 1.6rem;
             font-weight: bold;
             color: #ec661b;
             -webkit-transition: color 0.4s ease;
             transition: color 0.4s ease;
-            z-index: 1;
+            z-index: 2;
             text-decoration: none;
         }
-        header .menu > li > a:hover,
-        header .menu > li.menu-hover.active > a {
+        header .menu > li > a:hover {
             color: #000;
         }
         header .menu-right {
@@ -125,9 +96,7 @@
             top: 0;
             bottom: 0;
             margin: auto;
-            height: 50px;
-            width: auto;
-            z-index: 1;
+            z-index: 2;
             display: flex;
             align-items: center;
         }
@@ -142,8 +111,6 @@
             margin: 0 8px;
         }
         header .menu-right .link a {
-            font-size: 1.3rem;
-            line-height: 18px;
             white-space: nowrap;
             text-decoration: none;
         }
@@ -151,8 +118,6 @@
             display: block;
             background: #000;
             padding: 0 1.2em;
-            font-size: 1.2rem;
-            line-height: 32px;
             font-weight: bold;
             color: #fff;
             -webkit-border-radius: 16px;
@@ -172,18 +137,16 @@
             margin-right: 15px;
         }
         header .menu-right .sns a {
-            font-size: 2.4rem;
             line-height: 1em;
             color: #ec661b;
             text-decoration: none;
         }
-        #menu-button {
+        header .sp {
             display: none;
         }
         .breadcrumbs {
             position: absolute;
             left: 0px;
-            top: 80px;
             width: 100%;
             background: rgba(0, 0, 0, 0.4);
             padding: 10.5px 16.8px;
@@ -232,11 +195,9 @@
         main.lower {
             position: relative;
             display: block;
-            padding-top: 80px;
         }
         .lower-visual {
             position: relative;
-            padding-top: 300px;
             box-sizing: border-box;
         }
         .lower-visual .bgi {
@@ -257,7 +218,6 @@
             left: 0;
             image-rendering: pixelated;
             transform: translate(0, -50%);
-            font-size: 36px;
             font-weight: normal;
             color: #fff;
             text-align: center;
@@ -293,23 +253,15 @@
             transition: all 0.3s;
             cursor: pointer;
         }
-        .category-nav-link:hover {
-            background-color: #ec661b;
-            color: #fff;
-        }
         .faq-group {
             margin-bottom: 50px;
             scroll-margin-top: 100px;
         }
         .category-heading {
-            font-size: 28px;
-            line-height: 1.6em;
             color: #000;
             font-weight: bold;
             text-align: center;
-            padding: 10px 0;
             border-bottom: 1px solid #000000;
-            margin-bottom: 40px;
         }
         .loading {
             text-align: center;
@@ -326,7 +278,6 @@
             background-color: #fff;
             border: 1px solid #e1e8ed;
             border-radius: 6px;
-            padding: 25px 30px;
             display: flex;
             align-items: flex-start;
             box-shadow: 0 2px 5px rgba(0,0,0,0.02);
@@ -338,10 +289,8 @@
             border-left: 6px solid #000000;
         }
         .prefix-q, .prefix-a {
-            font-size: 24px;
             font-weight: 900;
-            margin-right: 20px;
-            flex-shrink: 0;
+            line-shrink: 0;
             line-height: 1;
             font-family: 'Arial Black', sans-serif;
         }
@@ -363,8 +312,6 @@
         .survey-area {
             border-top: 1px solid #fff;
             background: #efefef;
-            margin-top: 30px;
-            padding: 1.5em 54px;
             text-align: center;
         }
         .survey-title {
@@ -376,19 +323,16 @@
         .survey-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
         }
         .btn-survey {
             background-color: #fff;
             border: 2px solid #ec661b;
             color: #ec661b;
             border-radius: 4px;
-            padding: 8px 35px;
             font-size: 14px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.2s;
-            min-width: 110px;
         }
         .btn-survey:hover {
             background-color: #ec661b;
@@ -425,7 +369,6 @@
         .list-item {
             background: #efefef;
             margin-bottom: 10px;
-            padding: 15px 50px 15px 60px;
             border-radius: 0px;
             border: none;
             transition: all 0.2s;
@@ -434,31 +377,18 @@
         .list-item::after {
             content: "＋";
             position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
             color: #ec661b;
             font-weight: bold;
-            font-size: 20px;
         }
         .list-item a {
             color: #333;
             text-decoration: none;
             font-weight: bold;
             display: block;
-            font-size: 16px;
-            line-height: 25px;
         }
         .list-item a span {
             position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 25px;
-            height: 25px;
             background: #000000;
-            font-size: 14px;
-            line-height: 25px;
             color: #ffffff;
             text-align: center;
             border-radius: 50%;
@@ -468,19 +398,122 @@
             display: none;
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (min-width: 769px) {
             html {
-                min-width: 100%;
+                min-width: 1200px;
             }
             html *:not(br):not(span):not(strong):not(em):not(i) {
                 font-size: 1.4rem;
             }
             header {
-                height: 60px;
-                min-width: 100%;
+                min-width: 1250px;
+                height: 80px;
+            }
+            header::before {
+                height: 80px;
+            }
+            header .logo {
+                width: 80px;
+                height: 80px;
+            }
+            header .menu > li > a {
+                height: 80px;
+                font-size: 1.6rem;
+            }
+            header .menu-right .link a {
+                font-size: 1.3rem;
+            }
+            header .menu-right .link a.btn-inquiry {
+                font-size: 1.2rem;
+                line-height: 32px;
+            }
+            header .menu-right .sns a {
+                font-size: 2.4rem;
+            }
+            #menu-button {
+                display: none;
+            }
+            .breadcrumbs {
+                top: 80px;
+            }
+            main.lower {
+                padding-top: 80px;
+            }
+            .lower-visual {
+                padding-top: 300px;
+            }
+            .lower-visual .title {
+                font-size: 36px;
+            }
+            .category-nav-link:hover {
+                background-color: #ec661b;
+                color: #fff;
+            }
+            .category-heading {
+                font-size: 28px;
+                line-height: 1.6em;
+                margin-bottom: 40px;
+            }
+            .box-q, .box-a {
+                padding: 25px 30px;
+            }
+            .prefix-q, .prefix-a {
+                font-size: 24px;
+                margin-right: 20px;
+            }
+            .survey-area {
+                padding: 1.5em 54px;
+                margin-top: 30px;
+            }
+            .survey-buttons {
+                gap: 15px;
+            }
+            .btn-survey {
+                min-width: 110px;
+                padding: 8px 35px;
+            }
+            .list-item {
+                padding: 15px 50px 15px 60px;
+            }
+            .list-item::after {
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 20px;
+            }
+            .list-item a {
+                font-size: 16px;
+                line-height: 25px;
+            }
+            .list-item a span {
+                left: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 25px;
+                height: 25px;
+                font-size: 14px;
+                line-height: 25px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            html {
+                min-width: 100% !important;
+            }
+            body {
+                min-width: 100% !important;
+            }
+            html *:not(br):not(span):not(strong):not(em):not(i) {
+                font-size: 1.4rem;
+            }
+            header {
+                height: 60px !important;
+                min-width: 100% !important;
+                width: 100% !important;
             }
             header::before {
                 height: 60px;
+                width: 100%;
             }
             header .logo {
                 width: 60px;
@@ -490,62 +523,55 @@
                 display: none !important;
             }
             header .sp {
-                display: flex;
+                display: flex !important;
+                position: absolute;
+                top: 0;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                z-index: 2;
+                height: 60px;
             }
             header .btn-reservation {
-                position: absolute;
                 right: 164px;
-                top: 0;
-                background: #043491;
                 width: 66px;
-                height: 60px;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
+                background: #043491;
+            }
+            header .btn-reservation a {
+                color: #ffffff;
                 font-size: 9px;
                 font-weight: bold;
-                color: #ffffff;
                 line-height: 1.3em;
+                text-decoration: none;
                 letter-spacing: -0.05em;
-                z-index: 2;
+                display: block;
             }
             header .btn-inquiry {
-                position: absolute;
                 right: 104px;
-                top: 0;
-                background: #000000;
                 width: 60px;
-                height: 60px;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
+                background: #000000;
+            }
+            header .btn-inquiry a {
+                color: #ffffff;
                 font-size: 9px;
                 font-weight: bold;
-                color: #ffffff;
                 line-height: 1.3em;
+                text-decoration: none;
                 letter-spacing: -0.05em;
-                z-index: 2;
+                display: block;
             }
             header .btn-search {
-                position: absolute;
                 right: 50px;
-                top: 0;
-                background: #f4e827;
                 width: 54px;
-                height: 60px;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
+                background: #f4e827;
+            }
+            header .btn-search a {
+                color: #000000;
                 font-size: 9px;
                 font-weight: bold;
-                color: #000000;
                 line-height: 1.3em;
-                letter-spacing: -0.05em;
-                z-index: 2;
-            }
-            header .btn-reservation a, header .btn-inquiry a, header .btn-search a {
-                color: inherit;
                 text-decoration: none;
+                letter-spacing: -0.05em;
                 display: block;
             }
             #menu-button {
@@ -555,7 +581,7 @@
                 background: #ffffff;
                 width: 50px;
                 height: 60px;
-                display: flex;
+                display: flex !important;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
@@ -569,21 +595,21 @@
                 width: 20px;
                 height: 1.5px;
                 background: #000000;
-                margin: 2px 0;
+                margin: 2.5px 0;
                 transition: all 0.3s ease;
             }
             #menu-button p {
                 display: none;
             }
             #menu-button.active div:nth-child(1) {
-                transform: translateY(5.5px) rotate(45deg);
+                transform: translateY(6.5px) rotate(45deg);
                 width: 22px;
             }
             #menu-button.active div:nth-child(2) {
                 opacity: 0;
             }
             #menu-button.active div:nth-child(3) {
-                transform: translateY(-5.5px) rotate(-45deg);
+                transform: translateY(-6.5px) rotate(-45deg);
                 width: 22px;
             }
             .sp-nav {
@@ -665,6 +691,7 @@
             }
             main.lower {
                 padding-top: 60px;
+                width: 100% !important;
             }
             .breadcrumbs {
                 top: 60px;
@@ -677,6 +704,7 @@
             }
             .lower-visual {
                 padding-top: 150px;
+                width: 100% !important;
             }
             .lower-visual .title {
                 font-size: 24px;
@@ -685,6 +713,7 @@
             .main-container {
                 margin: 30px auto;
                 padding: 0 15px;
+                width: 100% !important;
             }
             .category-nav {
                 display: grid;
@@ -736,9 +765,16 @@
             .category-heading {
                 font-size: 20px;
                 margin-bottom: 25px;
+                padding: 10px 0;
             }
             .list-item {
                 padding: 12px 40px 12px 48px;
+            }
+            .list-item::after {
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 16px;
             }
             .list-item a {
                 font-size: 15px;
@@ -749,13 +785,12 @@
                 height: 22px;
                 line-height: 22px;
                 font-size: 12px;
-            }
-            .list-item::after {
-                right: 15px;
-                font-size: 16px;
+                top: 50%;
+                transform: translateY(-50%);
             }
             .box-q, .box-a {
                 padding: 20px 15px;
+                width: 100% !important;
             }
             .prefix-q, .prefix-a {
                 font-size: 20px;
@@ -767,6 +802,7 @@
             .survey-area {
                 padding: 1.5em 15px;
                 margin-top: 20px;
+                width: 100% !important;
             }
             .survey-buttons {
                 gap: 10px;
@@ -821,7 +857,7 @@
             <li><a href="https://www.kaikatsu.jp/food/" target="_blank">お食事メニュー</a></li>
         </ul>
         <div class="sp-nav-sub">
-            <a href="https://www.kaikatsu.jp/contact/" target="_blank"><i class="fas fa-question"></i> お問い合わせ</a>
+            <a href="https://www.kaikatsu.jp/contact/" target="_blank"><i class="fas fa-question-circle"></i> お問い合わせ</a>
         </div>
         <div class="sp-nav-sns">
             <a href="https://twitter.com/kaikatsuclub_jp" target="_blank"><i class="fab fa-twitter"></i></a>
