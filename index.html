@@ -247,9 +247,11 @@
             transition: all 0.3s;
             cursor: pointer;
         }
-        .category-nav-link:hover {
-            background-color: #ec661b;
-            color: #fff;
+        @media (hover: hover) {
+            .category-nav-link:hover {
+                background-color: #ec661b;
+                color: #fff;
+            }
         }
         .faq-group {
             margin-bottom: 50px;
@@ -609,6 +611,13 @@
                 height: 52px;
                 line-height: 1.3em;
             }
+            .category-nav-link:hover, .category-nav-link:focus {
+                background-color: #ffffff;
+                color: #ec661b;
+            }
+            .category-nav-link:active {
+                background-color: #f4f4f4;
+            }
             .category-nav-link::after {
                 content: "";
                 position: absolute;
@@ -791,6 +800,7 @@
                 navLink.textContent = catMap[catId];
                 navLink.addEventListener('click', (e) => {
                     e.preventDefault();
+                    navLink.blur();
                     const targetSection = document.getElementById(`group-${catId}`);
                     if (targetSection) {
                         targetSection.scrollIntoView({ behavior: 'smooth' });
