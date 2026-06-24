@@ -10,165 +10,231 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
+        /* ─── 本家公式CSS完全移植・最適化 ─── */
         body {
-            font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.7;
+            font-family: "Noto Sans JP", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+            line-height: 1.6em;
             background-color: #ffffff;
             color: #000000;
             margin: 0;
             padding: 0;
         }
-
-        /* ─── 1. グローバルヘッダー（本家サイズ・配置を完全指定） ─── */
-        .kaikatsu-global-header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e1e8ed;
-            height: 74px; /* 💡ヘッダー全体のheightを74pxに固定 */
+        * {
             box-sizing: border-box;
-            padding: 0 40px 0 0; /* 右端のみ余白、左端はロゴのために0 */
-        }
-        .header-container {
-            width: 100%;
-            max-width: 100%; /* 左右にパキッと分けるため全幅指定 */
-            height: 100%;
-            display: flex;
-            justify-content: space-between; /* 左寄せ・右寄せをはっきり分離 */
-            align-items: center;
-        }
-        .header-left {
-            display: flex;
-            align-items: center;
-            height: 100%;
-            gap: 40px; /* ロゴとナビの間隔 */
-        }
-        .logo-link {
-            display: flex;
-            align-items: center;
-            height: 100%;
-        }
-        .logo-link img {
-            height: 73px; /* 💡ロゴの縦幅を73pxに固定（ヘッダーとほぼ完全一致） */
-            width: auto;
-            display: block;
-        }
-        /* 左寄せナビゲーション */
-        .main-nav {
-            display: flex;
-            gap: 28px;
-            align-items: center;
-        }
-        .main-nav a {
-            color: #e65500;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 15px; /* 💡フォントサイズを15pxに固定 */
-            letter-spacing: 0.02em;
-        }
-        .main-nav a:hover {
-            text-decoration: underline;
         }
 
-        /* 右寄せアクションボタン・SNS */
-        .header-right {
+        /* ─── 1. 公式ヘッダー（height: 80px、ロゴ縦幅完全一致） ─── */
+        header {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            min-width: 1250px;
+            height: 80px; /* 💡本家固定値 */
+            z-index: 100;
             display: flex;
-            align-items: center;
-            gap: 15px;
+            background: #ffffff;
+            box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* ロゴエリア：80pxの完全正方形 */
+        header .logo {
+            position: relative;
+            width: 80px; /* 💡本家固定値 */
+            height: 80px; /* 💡本家固定値 */
+            z-index: 1;
+        }
+        header .logo a {
+            display: block;
+            width: 100%;
             height: 100%;
         }
-        .btn-reserve {
-            background-color: #0d4da1;
-            color: #ffffff;
-            padding: 9px 24px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 12px;
-            letter-spacing: 0.05em;
+        header .logo img {
+            width: 100%;
+            height: 100%; /* 💡ヘッダーの縦幅と完全一致 */
+            display: block;
+            object-fit: contain;
         }
-        .btn-contact {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 9px 24px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 12px;
-            letter-spacing: 0.05em;
+
+        /* 左寄せナビゲーション */
+        header .menu {
+            margin: 0;
+            padding: 0 18px;
+            list-style: none;
+            display: flex;
+            z-index: 1;
         }
-        .btn-reserve:hover, .btn-contact:hover {
+        header .menu > li > a {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 80px; /* 💡ヘッダーと高さを統一 */
+            padding: 0 16px;
+            font-size: 16px; /* 💡15pxから本家指定の16px(1.6rem)へ修正 */
+            font-weight: bold;
+            color: #ec661b; /* 💡快活オレンジ */
+            text-decoration: none;
+            transition: color 0.4s ease;
+        }
+        header .menu > li > a:hover {
+            color: #000000;
+        }
+
+        /* 右寄せブロック（完全右端に絶対配置固定） */
+        header .menu-right {
+            position: absolute;
+            right: 0px; /* 💡右端寄せ */
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            height: 50px;
+            width: auto;
+            display: flex;
+            align-items: center;
+            z-index: 1;
+        }
+        header .menu-right .link {
+            margin: 0;
+            padding: 0 15px 0 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        header .menu-right .link li {
+            margin: 0 8px;
+        }
+        header .menu-right .link a.btn-inquiry {
+            display: block;
+            background: #000000;
+            padding: 0 1.2em;
+            font-size: 12px;
+            line-height: 32px;
+            font-weight: bold;
+            color: #ffffff;
+            border-radius: 16px;
+            text-decoration: none;
+        }
+        header .menu-right .link a.btn-inquiry.btn-reservation {
+            background: #043491; /* 💡個室予約の専用紺 */
+        }
+        header .menu-right .link a:hover {
             opacity: 0.8;
         }
-        .sns-links {
+
+        /* SNSリンク群 */
+        header .menu-right .sns {
+            margin: 0;
+            padding: 0 25px 0 0;
+            list-style: none;
             display: flex;
-            gap: 18px;
             align-items: center;
-            margin-left: 5px;
         }
-        .sns-icon {
-            color: #e65500;
-            font-size: 18px;
+        header .menu-right .sns li {
+            margin-right: 15px;
+        }
+        header .menu-right .sns li:last-child {
+            margin-right: 0;
+        }
+        header .menu-right .sns a {
+            font-size: 24px;
+            line-height: 1em;
+            color: #ec661b;
             text-decoration: none;
         }
 
-        /* ─── 2. サブヘッダー（背景画像エリアの縦幅を本家に完全一致） ─── */
-        .kaikatsu-lower-area {
+        /* ─── 2. 公式パンくずリスト ─── */
+        .breadcrumbs {
+            position: absolute;
+            left: 0px;
+            top: 80px; /* 💡ヘッダーのすぐ下に配置 */
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4); /* 💡本家透過ブラック */
+            padding: 0.75em 1.2em;
+            z-index: 98;
+            margin: 0;
+        }
+        .breadcrumbs ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .breadcrumbs li {
+            margin-right: 1.5em;
+            position: relative;
+            font-size: 12px;
+            color: #ffffff;
+        }
+        .breadcrumbs li a {
+            font-size: 12px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .breadcrumbs li a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumbs li::after {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 50%;
+            right: -1em;
+            width: 0.4em;
+            height: 0.4em;
+            margin-top: -0.2em;
+            border-top: solid 1px #ffffff;
+            border-right: solid 1px #ffffff;
+            transform: rotate(45deg);
+        }
+        .breadcrumbs li:last-child::after {
+            display: none;
+        }
+
+        /* ─── 3. 公式サブヘッダー（lower-visual高さを完全再現） ─── */
+        main.lower {
+            position: relative;
+            display: block;
+            padding-top: 80px; /* ヘッダー分の余白 */
+        }
+        .lower-visual {
+            position: relative;
+            padding-top: 300px; /* 💡本家CSS：これで背景帯のゆったりした縦幅を確保 */
+        }
+        .lower-visual .bgi {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
             background-image: url("lower-visual.jpg");
             background-size: cover;
-            background-position: center;
-            position: relative;
-            height: 220px; /* 💡サブヘッダーの縦幅を本家スクショの比率にジャストフィット */
-            display: flex;
-            flex-direction: column;
-            box-sizing: border-box;
+            background-position: center top;
         }
-        .kaikatsu-lower-area::before {
+        /* 本家の文字視認性用うっすら暗転 */
+        .lower-visual::before {
             content: "";
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.45);
+            background: rgba(0,0,0,0.2);
             z-index: 1;
         }
-        .lower-area-inner {
-            max-width: 1200px;
+        .lower-visual .title {
+            position: absolute;
             width: 100%;
-            height: 100%;
-            margin: 0 auto;
-            padding: 25px 40px;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            box-sizing: border-box;
-        }
-        .breadcrumbs {
-            font-size: 12px;
-            color: #cccccc;
-            font-weight: 500;
-        }
-        .breadcrumbs a {
-            color: #cccccc;
-            text-decoration: none;
-        }
-        .breadcrumbs a:hover {
-            text-decoration: underline;
-        }
-        .main-title-container {
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: -20px;
-        }
-        .main-title {
-            font-size: 32px;
-            font-weight: 400;
+            margin-top: 1%;
+            top: 40%;
+            left: 0;
+            transform: translate(0, -50%);
+            font-size: 36px; /* 💡3.6rem */
+            font-weight: normal;
             color: #ffffff;
-            margin: 0;
-            letter-spacing: 0.08em;
+            text-align: center;
+            z-index: 2;
+            letter-spacing: 0.02em;
         }
 
-        /* ─── 3. メインコンテンツ（ご質問一覧） ─── */
+        /* ─── 4. メインコンテンツ（ご質問一覧） ─── */
         .main-container {
             max-width: 1000px;
             margin: 60px auto;
@@ -177,13 +243,13 @@
         }
 
         h2.headline {
-            font-size: 24px;
-            color: #03234d;
-            border-bottom: 2px solid #03234d;
-            padding-bottom: 12px;
-            margin-bottom: 30px;
-            font-weight: 700;
-            letter-spacing: 0.02em;
+            font-size: 28px; /* 💡2.8rem */
+            line-height: 1.6em;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #000000;
+            margin-bottom: 40px;
         }
 
         .loading {
@@ -209,10 +275,10 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
         .box-q {
-            border-left: 6px solid #e65500;
+            border-left: 6px solid #ec661b;
         }
         .box-a {
-            border-left: 6px solid #03234d;
+            border-left: 6px solid #000000;
         }
         
         .prefix-q, .prefix-a {
@@ -223,13 +289,13 @@
             line-height: 1;
             font-family: 'Arial Black', sans-serif;
         }
-        .prefix-q { color: #e65500; }
-        .prefix-a { color: #03234d; }
+        .prefix-q { color: #ec661b; }
+        .prefix-a { color: #000000; }
 
         .text-q {
             font-size: 18px;
             font-weight: bold;
-            color: #03234d;
+            color: #000000;
             margin: 0;
         }
         .text-a {
@@ -242,9 +308,10 @@
 
         /* アンケートエリア */
         .survey-area {
-            border-top: 1px dashed #e1e8ed;
+            border-top: 1px solid #fff;
+            background: #efefef;
             margin-top: 30px;
-            padding-top: 25px;
+            padding: 1.5em 54px;
             text-align: center;
         }
         .survey-title {
@@ -260,8 +327,8 @@
         }
         .btn-survey {
             background-color: #fff;
-            border: 2px solid #03234d;
-            color: #03234d;
+            border: 2px solid #ec661b;
+            color: #ec661b;
             border-radius: 4px;
             padding: 8px 35px;
             font-size: 14px;
@@ -271,7 +338,7 @@
             min-width: 110px;
         }
         .btn-survey:hover {
-            background-color: #03234d;
+            background-color: #ec661b;
             color: #fff;
         }
         .survey-thanks {
@@ -288,7 +355,7 @@
         .btn-back {
             display: block;
             width: 100%;
-            background-color: #03234d;
+            background-color: #ec661b;
             border: none;
             border-radius: 4px;
             padding: 14px 0;
@@ -302,90 +369,94 @@
             transition: background-color 0.2s;
         }
         .btn-back:hover {
-            background-color: #011430;
+            background-color: #d65d13;
         }
 
         .list-item {
-            background: #f4f4f4;
-            margin-bottom: 8px;
-            padding: 16px 20px;
-            border-radius: 4px;
+            background: #efefef; /* 💡本家質問リスト背景 */
+            margin-bottom: 10px;
+            padding: 0.85em 54px;
+            border-radius: 0px;
             border: none;
             transition: all 0.2s;
             position: relative;
         }
         .list-item::after {
-            content: "＋";
+            content: "";
+            background: #ec661b;
             position: absolute;
             right: 20px;
             top: 50%;
+            width: 16px;
+            height: 2px;
             transform: translateY(-50%);
-            color: #e65500;
-            font-weight: bold;
-            font-size: 16px;
+        }
+        .list-item::before {
+            content: "";
+            background: #ec661b;
+            position: absolute;
+            right: 27px;
+            top: 50%;
+            width: 2px;
+            height: 16px;
+            transform: translateY(-50%);
         }
         .list-item:hover {
-            background-color: #e1e8ed;
-            transform: translateX(2px);
+            background-color: #e5e5e5;
         }
         .list-item a {
             color: #333;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: bold;
             display: block;
-            padding-right: 30px;
-        }
-        
-        /* レスポンシブ */
-        @media (max-width: 1024px) {
-            .kaikatsu-global-header { padding: 0 15px 0 0; height: auto; }
-            .header-container { flex-wrap: wrap; padding: 10px 0; }
-            .header-left, .header-right { width: 100%; justify-content: space-between; }
-            .main-nav { width: 100%; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-            .kaikatsu-lower-area { height: 180px; }
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
 
-<header class="kaikatsu-global-header">
-    <div class="header-container">
-        <div class="header-left">
-            <a href="./" class="logo-link">
-                <img src="logo01.svg" alt="快活CLUB">
-            </a>
-            <nav class="main-nav">
-                <a href="https://www.kaikatsu.jp/guide/" target="_blank">はじめての方</a>
-                <a href="https://www.kaikatsu.jp/shop/" target="_blank">店舗検索・料金</a>
-                <a href="https://www.kaikatsu.jp/enjoy/" target="_blank">快活CLUBのサービス</a>
-                <a href="https://www.kaikatsu.jp/food/" target="_blank">お食事メニュー</a>
-            </nav>
-        </div>
-        <div class="header-right">
-            <a href="https://reservation.kaikatsu.jp/" target="_blank" class="btn-reserve">鍵付完全個室WEB予約</a>
-            <a href="https://www.kaikatsu.jp/contact/" target="_blank" class="btn-contact">お問い合わせ</a>
-            <div class="sns-links">
-                <a href="https://x.com/kaikatsuclub_jp" target="_blank" class="sns-icon"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.facebook.com/kaikatsu.jp/" target="_blank" class="sns-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/kaikatsuclub_jp/" target="_blank" class="sns-icon"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
+<header>
+    <div class="logo">
+        <a href="./">
+            <img src="logo01.svg" alt="快活CLUB">
+        </a>
     </div>
+    <nav>
+        <ul class="menu">
+            <li><a href="https://www.kaikatsu.jp/guide/" target="_blank">はじめての方</a></li>
+            <li><a href="https://www.kaikatsu.jp/shop/" target="_blank">店舗検索・料金</a></li>
+            <li><a href="https://www.kaikatsu.jp/enjoy/" target="_blank">快活CLUBのサービス</a></li>
+            <li><a href="https://www.kaikatsu.jp/food/" target="_blank">お食事メニュー</a></li>
+        </ul>
+        <div class="menu-right">
+            <ul class="link">
+                <li><a href="https://reservation.kaikatsu.jp/" target="_blank" class="hover btn-inquiry btn-reservation">鍵付完全個室WEB予約</a></li>
+                <li><a href="https://www.kaikatsu.jp/contact/" target="_blank" class="hover btn-inquiry">お問い合わせ</a></li>
+            </ul>
+            <ul class="sns">
+                <li><a href="https://twitter.com/kaikatsuclub_jp" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.facebook.com/kaikatsu.jp/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.instagram.com/kaikatsuclub_jp/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    </nav>
 </header>
 
-<div class="kaikatsu-lower-area">
-    <div class="lower-area-inner">
-        <nav class="breadcrumbs">
-            <a href="https://www.kaikatsu.jp/" target="_blank">快活CLUBトップ</a> &gt; <span id="breadcrumb-current">よくあるご質問</span>
-        </nav>
-        <div class="main-title-container">
-            <h1 class="main-title" id="dynamic-title">よくあるご質問</h1>
-        </div>
+<main class="lower">
+    <nav class="breadcrumbs">
+        <ol>
+            <li><a href="https://www.kaikatsu.jp/" target="_blank">快活CLUBトップ</a></li>
+            <li><span id="breadcrumb-current">よくあるご質問</span></li>
+        </ol>
+    </nav>
+    <div class="lower-visual">
+        <figure class="bgi"></figure>
+        <h1 class="title" id="dynamic-title">よくあるご質問</h1>
     </div>
-</div>
-
-<main class="main-container" id="main-content">
-    <p class="loading">データを読み込み中...</p>
+    
+    <div class="main-container" id="main-content">
+        <p class="loading">データを読み込み中...</p>
+    </div>
 </main>
 
 <script>
@@ -412,7 +483,7 @@
                 
                 if (currentFaq) {
                     dynamicTitle.textContent = currentFaq.question;
-                    breadcrumbCurrent.textContent = "FAQ詳細";
+                    breadcrumbCurrent.innerHTML = `<a href="./">よくあるご質問</a>`;
                     
                     mainContent.innerHTML = `
                         <div class="qa-card">
