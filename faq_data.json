@@ -1,600 +1,600 @@
 [
   {
-    "id": "no-gRy6",
+    "id": "faq-YMDK",
     "category": "no",
     "question": "これは質問ですか？",
     "answer": "それは質問ですが、これは回答です。"
   },
   {
-    "id": "no-b0KJ",
+    "id": "faq-k0s4",
     "category": "no",
     "question": "明日の天気はどうですか？",
     "answer": "明日になれば分かります。"
   },
   {
-    "id": "no-qASj",
+    "id": "faq-388f",
     "category": "no",
     "question": "パスワードを忘れました。",
     "answer": "思い出せるまでじっくり考えてみてください。"
   },
   {
-    "id": "no-tosE",
+    "id": "faq-u6Se",
     "category": "no",
     "question": "お腹が空きました。",
     "answer": "何かを食べるか、満腹になることをおすすめします。"
   },
   {
-    "id": "no-0ZyG",
+    "id": "faq-urZm",
     "category": "no",
     "question": "このサイトの目的は何ですか？",
     "answer": "この質問を表示することです。"
   },
   {
-    "id": "no-Od8B",
+    "id": "faq-DUDv",
     "category": "no",
     "question": "右と左、どちらが右ですか？",
     "answer": "左ではない方が右です。"
   },
   {
-    "id": "no-qPJ1",
+    "id": "faq-p4g3",
     "category": "no",
     "question": "1+1の答えを教えてください。",
     "answer": "田んぼの「田」ではありません。2です。"
   },
   {
-    "id": "no-iDF0",
+    "id": "faq-oIHD",
     "category": "no",
     "question": "ここはどこですか？",
     "answer": "あなたが今画面を見ている、まさにその場所です。"
   },
   {
-    "id": "no-iV3Y",
+    "id": "faq-GVtC",
     "category": "no",
     "question": "ログインできません。",
     "answer": "ログインしていない状態をお楽しみください。"
   },
   {
-    "id": "no-LURt",
+    "id": "faq-psgN",
     "category": "no",
     "question": "問い合わせ先はどこですか？",
     "answer": "今あなたが読んでいるこの場所が、行き止まりです。"
   },
   {
-    "id": "no-x6EG",
+    "id": "faq-kFdI",
     "category": "no",
     "question": "息を吸うとどうなりますか？",
     "answer": "その後、吐きたくなります。"
   },
   {
-    "id": "no-6qzv",
+    "id": "faq-Igpe",
     "category": "no",
     "question": "ボタンを押しても何も起きません。",
     "answer": "「何も起きない」という現象が、正常に発生しています。"
   },
   {
-    "id": "no-1z32",
+    "id": "faq-S6jt",
     "category": "no",
     "question": "好きな食べ物は何ですか？",
     "answer": "サーバーなので電気を好みますが、食べられません。"
   },
   {
-    "id": "no-kqNY",
+    "id": "faq-l8nI",
     "category": "no",
     "question": "眠いときはどうすればいいですか？",
     "answer": "目を閉じると、世界が暗くなって眠りやすくなります。"
   },
   {
-    "id": "no-9S6A",
+    "id": "faq-F4mq",
     "category": "no",
     "question": "ページの読み込みが遅いです。",
     "answer": "待つという行為を通じて、精神が鍛えられている最中です。"
   },
   {
-    "id": "no-9H8l",
+    "id": "faq-tiTj",
     "category": "no",
     "question": "このFAQは役に立ちますか？",
     "answer": "役に立たないという点において、非常に役立っています。"
   },
   {
-    "id": "no-CcmS",
+    "id": "faq-lisF",
     "category": "no",
     "question": "猫派ですか？犬派ですか？",
     "answer": "どちらかと言えば、ルーター派です。"
   },
   {
-    "id": "no-uMwK",
+    "id": "faq-xAH1",
     "category": "no",
     "question": "文字が小さくて読めません。",
     "answer": "画面に顔を限界まで近づけてみてください。"
   },
   {
-    "id": "no-XwWP",
+    "id": "faq-0rU3",
     "category": "no",
     "question": "現在時刻を教えてください。",
     "answer": "あなたが時計を見た、その時間です。"
   },
   {
-    "id": "no-ccI9",
+    "id": "faq-lKE7",
     "category": "no",
     "question": "バグを見つけました。",
     "answer": "それはバグではなく、最先端の「仕様」です。"
   },
   {
-    "id": "no-C2gE",
+    "id": "faq-QDKt",
     "category": "no",
     "question": "スクロールが止まりません。",
     "answer": "指を画面から離すことで、奇跡的に止まります。"
   },
   {
-    "id": "no-SJGS",
+    "id": "faq-Bwg7",
     "category": "no",
     "question": "ここにあるリンクはクリックできますか？",
     "answer": "クリックは自由ですが、どこにも繋がっていません。"
   },
   {
-    "id": "no-cxyM",
+    "id": "faq-XotV",
     "category": "no",
     "question": "有料ですか？",
     "answer": "あなたの貴重な時間を数秒ほど消費しております。"
   },
   {
-    "id": "no-mrCe",
+    "id": "faq-5tdK",
     "category": "no",
     "question": "戻るボタンを押すとどうなりますか？",
     "answer": "一つ前の、どうでもいい画面に戻ります。"
   },
   {
-    "id": "no-Rk3h",
+    "id": "faq-sUn4",
     "category": "no",
     "question": "規約に同意したくないです。",
     "answer": "同意しないという強い意志を、私たちは尊重します（ただし進めません）。"
   },
   {
-    "id": "no-J9uj",
+    "id": "faq-tvFy",
     "category": "no",
     "question": "画面が真っ白です。",
     "answer": "心の綺麗な人にだけ見える、次世代のUIです。"
   },
   {
-    "id": "no-rcE6",
+    "id": "faq-xpCB",
     "category": "no",
     "question": "卵が先ですか？鶏が先ですか？",
     "answer": "メニューに先に載っている方です。"
   },
   {
-    "id": "no-qv6E",
+    "id": "faq-uUSi",
     "category": "no",
     "question": "地球は丸いですか？",
     "answer": "少なくとも、あなたのディスプレイよりは丸いです。"
   },
   {
-    "id": "no-yuQv",
+    "id": "faq-W6QX",
     "category": "no",
     "question": "検索機能が機能していません。",
     "answer": "探さないことで、見つかる幸せもあります。"
   },
   {
-    "id": "no-ZOkM",
+    "id": "faq-0WKl",
     "category": "no",
     "question": "おみくじを引かせてください。",
     "answer": "【吉】特に何も起きない平穏な一日でしょう。"
   },
   {
-    "id": "no-QeYB",
+    "id": "faq-nusF",
     "category": "no",
     "question": "喉が渇きました。",
     "answer": "水分を摂取するチャンスです。"
   },
   {
-    "id": "no-jbwM",
+    "id": "faq-CH9j",
     "category": "no",
     "question": "富士山の高さは？",
     "answer": "登ってみると、かなり高いことが分かります。"
   },
   {
-    "id": "no-Wy5q",
+    "id": "faq-mJcC",
     "category": "no",
     "question": "このデータはいつ更新されました加？",
     "answer": "さっき読んだ時よりも、今の方が新しいです。"
   },
   {
-    "id": "no-CwXj",
+    "id": "faq-ZNJR",
     "category": "no",
     "question": "なぜ空は青いのですか？",
     "answer": "ピンクだと落ち着かないからです。"
   },
   {
-    "id": "no-9ZIj",
+    "id": "faq-Jz5a",
     "category": "no",
     "question": "画面を閉じたいです。",
     "answer": "右上のバツ印か、端末の電源ボタンがあなたを待っています。"
   },
   {
-    "id": "no-Px0U",
+    "id": "faq-jqj7",
     "category": "no",
     "question": "英語で話しかけてもいいですか？",
     "answer": "OK, but I will reply in Japanese."
   },
   {
-    "id": "no-2ZKL",
+    "id": "faq-J6mU",
     "category": "no",
     "question": "音声入力は使えますか？",
     "answer": "画面に向かって大声で叫んでみてください。何も起きません。"
   },
   {
-    "id": "no-gwuz",
+    "id": "faq-QBVW",
     "category": "no",
     "question": "今日は何曜日ですか？",
     "answer": "燃えるゴミの日か、そうではない日のどちらかです。"
   },
   {
-    "id": "no-kZEW",
+    "id": "faq-1bjv",
     "category": "no",
     "question": "視力が悪くなりました。",
     "answer": "ブルーライトがあなたを優しく包み込んでいる証拠です。"
   },
   {
-    "id": "no-HdQZ",
+    "id": "faq-owmb",
     "category": "no",
     "question": "スマートフォンでも見られますか？",
     "answer": "今スマホで見ているなら、見られています。"
   },
   {
-    "id": "no-FxiP",
+    "id": "faq-tZdB",
     "category": "no",
     "question": "AIですか？",
     "answer": "私は「愛（AI）」を込めて作られたただの文字列です。"
   },
   {
-    "id": "no-DDBO",
+    "id": "faq-snyQ",
     "category": "no",
     "question": "宝くじに当たりますか？",
     "answer": "買わなければ、絶対に外れるという安心感を得られます。"
   },
   {
-    "id": "no-Zaob",
+    "id": "faq-36Sl",
     "category": "no",
     "question": "お腹が鳴りました。",
     "answer": "胃が自己主張を始めています。"
   },
   {
-    "id": "no-WzuY",
+    "id": "faq-SPof",
     "category": "no",
     "question": "コーヒーと紅茶、どちらが好きですか？",
     "answer": "緑茶の気分です。"
   },
   {
-    "id": "no-EZUm",
+    "id": "faq-piEw",
     "category": "no",
     "question": "このサイトのフォントは何ですか？",
     "answer": "目で見えるタイプのフォントです。"
   },
   {
-    "id": "no-E8jx",
+    "id": "faq-WVBU",
     "category": "no",
     "question": "運動したほうがいいですか？",
     "answer": "明日から始めましょう。"
   },
   {
-    "id": "no-PcJQ",
+    "id": "faq-TNxW",
     "category": "no",
     "question": "どこからが夜ですか？",
     "answer": "眠くなったら夜です。"
   },
   {
-    "id": "no-0BbS",
+    "id": "faq-Aqs2",
     "category": "no",
     "question": "暗証番号を4桁で教えてください。",
     "answer": "「1234」ではないことだけは確かです。"
   },
   {
-    "id": "no-QbNl",
+    "id": "faq-qU2H",
     "category": "no",
     "question": "髪の毛を切りたいです。",
     "answer": "美容室に行くか、そのまま伸ばしてギネスを目指してください。"
   },
   {
-    "id": "no-rru1",
+    "id": "faq-OoB8",
     "category": "no",
     "question": "ちょうど半分まで来ましたね。",
     "answer": "はい、あと半分も同じような内容が続きます。"
   },
   {
-    "id": "no-ocg1",
+    "id": "faq-DMK4",
     "category": "no",
     "question": "ユーザー名に使用できない文字はありますか？",
     "answer": "あなたの心の中にある、目に見えない文字は使えません。"
   },
   {
-    "id": "no-RFRA",
+    "id": "faq-CUra",
     "category": "no",
     "question": "どちら様ですか？",
     "answer": "通りすがりの、ただのデモデータです。"
   },
   {
-    "id": "no-tOVs",
+    "id": "faq-Phbe",
     "category": "no",
     "question": "推しは誰ですか？",
     "answer": "このFAQを作成した開発者です。"
   },
   {
-    "id": "no-lViF",
+    "id": "faq-wvHH",
     "category": "no",
     "question": "靴ひもがほどけました。",
     "answer": "結び直すか、踏んで転ぶかの二択です。"
   },
   {
-    "id": "no-vhMZ",
+    "id": "faq-3FQB",
     "category": "no",
     "question": "1分は何秒ですか？",
     "answer": "退屈な時間を過ごしているときは、1時間くらいに感じられます。"
   },
   {
-    "id": "no-OLXn",
+    "id": "faq-OtAs",
     "category": "no",
     "question": "まばたきの頻度は？",
     "answer": "この質問を読んでいる間に、おそらく2回はしています。"
   },
   {
-    "id": "no-HVKC",
+    "id": "faq-zqaR",
     "category": "no",
     "question": "夏は暑いですか？",
     "answer": "冬に比べれば、驚くほど暑いです。"
   },
   {
-    "id": "no-lLtI",
+    "id": "faq-YQys",
     "category": "no",
     "question": "この回答は自動生成ですか？",
     "answer": "手動で自動っぽいものを目指しました。"
   },
   {
-    "id": "no-YSGD",
+    "id": "faq-weL2",
     "category": "no",
     "question": "漢字が読めません。",
     "answer": "ひらがなで かくと よめるかも しれません。"
   },
   {
-    "id": "no-roZL",
+    "id": "faq-wcVJ",
     "category": "no",
     "question": "宇宙の果てには何がありますか？",
     "answer": "「ここまで」と書かれた看板があるかもしれません。"
   },
   {
-    "id": "no-k3lG",
+    "id": "faq-fAvg",
     "category": "no",
     "question": "通知がうるさいです。",
     "answer": "音量をゼロにすると、静寂が訪れます。"
   },
   {
-    "id": "no-2Zcc",
+    "id": "faq-8se4",
     "category": "no",
     "question": "領収書は出ますか？",
     "answer": "心の領収書なら、いつでも発行いたします。"
   },
   {
-    "id": "no-5pWn",
+    "id": "faq-fLR7",
     "category": "no",
     "question": "カレーは飲み物ですか？",
     "answer": "噛んで食べることを推奨します。"
   },
   {
-    "id": "no-5jgt",
+    "id": "faq-vfEY",
     "category": "no",
     "question": "部屋が散らかっています。",
     "answer": "物が定位置を拒否している状態です。"
   },
   {
-    "id": "no-72yq",
+    "id": "faq-jk09",
     "category": "no",
     "question": "印刷したいです。",
     "answer": "画面に紙を押し当てて鉛筆でなぞってください。"
   },
   {
-    "id": "no-UCcu",
+    "id": "faq-wGU5",
     "category": "no",
     "question": "ここをクリックするとどうなりますか？",
     "answer": "クリックされたというログが、どこかで静かに記録されます。"
   },
   {
-    "id": "no-9EvL",
+    "id": "faq-zhrP",
     "category": "no",
     "question": "傘を持ってきた日に限って雨が降りません。",
     "answer": "あなたのおかげで、街の平和が守られました。"
   },
   {
-    "id": "no-jsRO",
+    "id": "faq-4cR7",
     "category": "no",
     "question": "利用料金は発生しますか？",
     "answer": "通信会社へのパケット代が発生しています。"
   },
   {
-    "id": "no-Yq8s",
+    "id": "faq-yf0Q",
     "category": "no",
     "question": "このボタンの色は何色ですか？",
     "answer": "カラーコードを解析してみてください。"
   },
   {
-    "id": "no-vmUf",
+    "id": "faq-QgKL",
     "category": "no",
     "question": "宿題が終わりません。",
     "answer": "終わらない宿題はありませんが、終わらせないことは可能です。"
   },
   {
-    "id": "no-AHae",
+    "id": "faq-r4Aq",
     "category": "no",
     "question": "パソコンが熱いです。",
     "answer": "パソコンも一生懸命、どうでもいい処理を頑張っています。"
   },
   {
-    "id": "no-vq7z",
+    "id": "faq-w99b",
     "category": "no",
     "question": "100円ショップで200円の商品を見つけました。",
     "answer": "少し贅沢な気分を味わってください。"
   },
   {
-    "id": "no-jwtp",
+    "id": "faq-I1UN",
     "category": "no",
     "question": "ログインボーナスはありますか？",
     "answer": "今日もサイトにアクセスできたという「達成感」を差し上げます。"
   },
   {
-    "id": "no-89O7",
+    "id": "faq-VLEW",
     "category": "no",
     "question": "推奨環境を教えてください。",
     "answer": "あなたの穏やかで広い心が推奨されます。"
   },
   {
-    "id": "no-DGaE",
+    "id": "faq-VH0i",
     "category": "no",
     "question": "お祝いをしてください。",
     "answer": "おめでとうございます！何のお祝いかは分かりませんが！"
   },
   {
-    "id": "no-Z9VU",
+    "id": "faq-I4q0",
     "category": "no",
     "question": "画面がチカチカします。",
     "answer": "激しくまばたきをして、同期を取ってみてください。"
   },
   {
-    "id": "no-jMyc",
+    "id": "faq-7UZV",
     "category": "no",
     "question": "退会したいです。",
     "answer": "入会していないので、退会する宇宙も存在しません。"
   },
   {
-    "id": "no-6EiU",
+    "id": "faq-lsiT",
     "category": "no",
     "question": "塩分を控えたいです。",
     "answer": "海水を飲むのをやめましょう。"
   },
   {
-    "id": "no-lAKH",
+    "id": "faq-gK6C",
     "category": "no",
     "question": "秘密を教えてください。",
     "answer": "実は、このFAQは100個まであります。"
   },
   {
-    "id": "no-eNZY",
+    "id": "faq-nAHT",
     "category": "no",
     "question": "怒っていますか？",
     "answer": "テキストデータなので、感情の起伏が不器用です。"
   },
   {
-    "id": "no-df4a",
+    "id": "faq-BDa6",
     "category": "no",
     "question": "氷はなぜ冷たいですか？",
     "answer": "熱かったら、それはお湯だからです。"
   },
   {
-    "id": "no-PfZa",
+    "id": "faq-rcBN",
     "category": "no",
     "question": "バージョン情報を教えてください。",
     "answer": "Version \"Domo-De-I-To-Omoimasu\" です。"
   },
   {
-    "id": "no-V9wj",
+    "id": "faq-lemE",
     "category": "no",
     "question": "深呼吸のコツは？",
     "answer": "吐いてから吸う、ただそれだけです。"
   },
   {
-    "id": "no-YTHQ",
+    "id": "faq-ewJm",
     "category": "no",
     "question": "夜更かししてしまいます。",
     "answer": "早く寝ると、早く朝が来てしまう恐怖と戦っているのですね。"
   },
   {
-    "id": "no-F5U8",
+    "id": "faq-cQbN",
     "category": "no",
     "question": "データの保存先はどこですか？",
     "answer": "あなたのブラウザのキャッシュという、儚い記憶の中です。"
   },
   {
-    "id": "no-SFgs",
+    "id": "faq-XcT8",
     "category": "no",
     "question": "右クリックができません。",
     "answer": "左クリックを2回しても、右クリックにはなりません。"
   },
   {
-    "id": "no-jVJq",
+    "id": "faq-23fa",
     "category": "no",
     "question": "信号待ちが長いです。",
     "answer": "人生の休憩時間だと思って、お留守番してください。"
   },
   {
-    "id": "no-gEPf",
+    "id": "faq-XUZa",
     "category": "no",
     "question": "どこまでスクロールすれば終わりますか？",
     "answer": "あと少しで、底が見えます。"
   },
   {
-    "id": "no-o6gQ",
+    "id": "faq-jU7X",
     "category": "no",
     "question": "アプリ版はありますか？",
     "answer": "あなたの脳内にインストールすれば、いつでも起動可能です。"
   },
   {
-    "id": "no-ZGy9",
+    "id": "faq-uvOQ",
     "category": "no",
     "question": "ヘルプを開いたのにヘルプされません。",
     "answer": "セルフサービス精神の向上が見込めるヘルプです。"
   },
   {
-    "id": "no-pdFp",
+    "id": "faq-VmCl",
     "category": "no",
     "question": "爪が伸びるのが早いです。",
     "answer": "健康的に生きている証拠です。爪切りをご用意ください。"
   },
   {
-    "id": "no-1n6X",
+    "id": "faq-k3RB",
     "category": "no",
     "question": "広告を非表示にしたいです。",
     "answer": "そもそも広告を載せる予算がありませんでした。"
   },
   {
-    "id": "no-dUeJ",
+    "id": "faq-tUeQ",
     "category": "no",
     "question": "週末の予定がありません。",
     "answer": "予定がないという最高の予定が入っています。"
   },
   {
-    "id": "no-2rPW",
+    "id": "faq-c7tb",
     "category": "no",
     "question": "目が合いましたね。",
     "answer": "カメラの向こう側を覗かないでください。"
   },
   {
-    "id": "no-faj3",
+    "id": "faq-IsdW",
     "category": "no",
     "question": "エラーコード「000」とは何ですか？",
     "answer": "「特に問題はないが、何か言いたかった」コードです。"
   },
   {
-    "id": "no-8KAm",
+    "id": "faq-T7v9",
     "category": "no",
     "question": "戻り方がわかりません。",
     "answer": "振り返らず、前だけを見て進んでください。"
   },
   {
-    "id": "no-PT0J",
+    "id": "faq-Tq6r",
     "category": "no",
     "question": "最後の質問は何ですか？",
     "answer": "100番目の質問です。"
   },
   {
-    "id": "no-nz60",
+    "id": "faq-dAzM",
     "category": "no",
     "question": "あといくつ残っていますか？",
     "answer": "これを含めてあと3つです。"
   },
   {
-    "id": "no-RQw5",
+    "id": "faq-Wkpe",
     "category": "no",
     "question": "ついにここまできましたね。",
     "answer": "よくぞこの無意味な砂漠をサバイブしてくださいました。"
   },
   {
-    "id": "no-SQoM",
+    "id": "faq-NGxj",
     "category": "no",
     "question": "これで終わりですか？",
     "answer": "はい、終わりです。"
