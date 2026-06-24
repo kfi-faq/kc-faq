@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>よくあるご質問｜快活CLUB</title>
-    <!-- 🌐 本家で使用されているフォントとアイコンを読み込み -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* ─── 本家公式CSS完全移植 ─── */
         body {
             font-family: "Noto Sans JP", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
             line-height: 1.6em;
@@ -24,7 +22,6 @@
             box-sizing: border-box;
         }
 
-        /* ─── 1. 公式ヘッダー（height: 80px、ロゴ縦幅完全一致） ─── */
         header {
             position: fixed;
             left: 0px;
@@ -139,14 +136,13 @@
             text-decoration: none;
         }
 
-        /* ─── 2. 公式パンくずリスト（本家のピクセル数値に完全固定） ─── */
         .breadcrumbs {
             position: absolute;
             left: 0px;
-            top: 80px; /* ヘッダーの直下にジャスト配置 */
+            top: 80px;
             width: 100%;
             background: rgba(0, 0, 0, 0.4); 
-            padding: 10.5px 16.8px; /* 💡本家の計算値（10.500 / 16.800）を直書きで固定 */
+            padding: 10.5px 16.8px;
             z-index: 98;
             margin: 0;
             box-sizing: border-box;
@@ -161,12 +157,12 @@
         .breadcrumbs li {
             margin-right: 1.5em;
             position: relative;
-            font-size: 12px; /* 💡本家の 1.2rem = 12px に固定 */
-            line-height: 1.6em; /* 💡本家指定の 1.6em（高さ19.2px）に固定 */
+            font-size: 12px;
+            line-height: 1.6em;
             color: #ffffff;
         }
         .breadcrumbs li a {
-            font-size: 12px; /* 💡12pxに固定 */
+            font-size: 12px;
             color: #ffffff;
             text-decoration: none;
         }
@@ -190,16 +186,14 @@
             display: none;
         }
 
-        /* ─── 3. 公式サブヘッダー（隙間を完全消滅＋薄いグレーフィルターを全撤去） ─── */
         main.lower {
             position: relative;
             display: block;
-            padding-top: 80px; /* ヘッダーの高さ分の余白 */
+            padding-top: 80px;
         }
-        /* 💡本家と全く同じ「静的ブロック＋インラインパディング」構造に戻し、白い隙間を完全消滅させました */
         .lower-visual {
             position: relative;
-            padding-top: 300px; /* 本家公式のダイナミックな縦幅 */
+            padding-top: 300px;
             box-sizing: border-box;
         }
         .lower-visual .bgi {
@@ -212,7 +206,6 @@
             background-size: cover;
             background-position: center;
         }
-        /* ⚠️ご指摘通り、全体の薄い透過グレーフィルター（::before）は完全に削除しました！ */
 
         .lower-visual .title {
             position: absolute;
@@ -229,7 +222,6 @@
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
         }
 
-        /* ─── 4. メインコンテンツ ─── */
         .main-container {
             max-width: 1000px;
             margin: 60px auto;
@@ -254,7 +246,6 @@
             padding: 40px;
         }
 
-        /* Q&Aカードデザイン */
         .qa-card {
             display: flex;
             flex-direction: column;
@@ -301,7 +292,6 @@
             width: 100%;
         }
 
-        /* アンケートエリア */
         .survey-area {
             border-top: 1px solid #fff;
             background: #efefef;
@@ -346,7 +336,6 @@
             border-radius: 4px;
         }
 
-        /* ボタン＆リスト */
         .btn-back {
             display: block;
             width: 100%;
@@ -410,7 +399,6 @@
 </head>
 <body>
 
-<!-- ─── 1. グローバルヘッダー ─── -->
 <header>
     <div class="logo">
         <a href="./">
@@ -438,7 +426,6 @@
     </nav>
 </header>
 
-<!-- ─── 2. サブヘッダー（本家HTML構造を完全トレースして隙間をシャットアウト） ─── -->
 <main class="lower">
     <nav class="breadcrumbs">
         <ol>
@@ -451,7 +438,6 @@
         <h1 class="title" id="dynamic-title">よくあるご質問</h1>
     </div>
     
-    <!-- 3. メインコンテンツ -->
     <div class="main-container" id="main-content">
         <p class="loading">データを読み込み中...</p>
     </div>
@@ -475,7 +461,6 @@
             const urlParams = new URLSearchParams(window.location.search);
             const faqIdStr = urlParams.get('id');
             
-            // 1ページ1FAQ 表示モード
             if (faqIdStr) {
                 const currentFaq = data.find(item => item.id === faqIdStr);
                 
@@ -509,7 +494,6 @@
                 }
             }
             
-            // 一覧表示モード
             dynamicTitle.textContent = "よくあるご質問";
             breadcrumbCurrent.textContent = "よくあるご質問";
             mainContent.innerHTML = '<h2 class="headline">ご質問一覧</h2>';
