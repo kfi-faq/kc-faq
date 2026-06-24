@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>よくあるご質問｜快活CLUB</title>
-    <!-- 🌐 本家で使用されているフォントとアイコンを読み込み -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -20,34 +19,35 @@
             padding: 0;
         }
 
-        /* ─── 1. グローバルヘッダー（本家完全一致：余白ゼロ・左右極限配置） ─── */
+        /* ─── 1. グローバルヘッダー（本家サイズ・配置を完全指定） ─── */
         .kaikatsu-global-header {
             background-color: #ffffff;
             border-bottom: 1px solid #e1e8ed;
-            padding: 0 32px 0 0; /* 上下0、左0、右側だけ画面端の余白を確保 */
-            height: 74px; /* ヘッダーの縦幅を固定 */
+            height: 74px; /* 💡ヘッダー全体のheightを74pxに固定 */
             box-sizing: border-box;
+            padding: 0 40px 0 0; /* 右端のみ余白、左端はロゴのために0 */
         }
         .header-container {
             width: 100%;
-            max-width: 100%; /* 1400pxなどの制限を捨て、画面の端から端まで完全に広げる */
+            max-width: 100%; /* 左右にパキッと分けるため全幅指定 */
             height: 100%;
             display: flex;
-            justify-content: space-between; /* 左寄せブロックと右寄せブロックを完全に分ける */
+            justify-content: space-between; /* 左寄せ・右寄せをはっきり分離 */
             align-items: center;
         }
         .header-left {
             display: flex;
             align-items: center;
             height: 100%;
-            gap: 35px; /* ロゴとメニューの間隔 */
+            gap: 40px; /* ロゴとナビの間隔 */
         }
         .logo-link {
-            display: block;
-            height: 100%; /* ヘッダーの高さ100%に引き伸ばす */
+            display: flex;
+            align-items: center;
+            height: 100%;
         }
         .logo-link img {
-            height: 100%; /* 💡ロゴの縦幅をヘッダーの縦幅と完全一致させる */
+            height: 73px; /* 💡ロゴの縦幅を73pxに固定（ヘッダーとほぼ完全一致） */
             width: auto;
             display: block;
         }
@@ -58,10 +58,10 @@
             align-items: center;
         }
         .main-nav a {
-            color: #e65500; /* 本家仕様の濃いオレンジ */
+            color: #e65500;
             text-decoration: none;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 15px; /* 💡フォントサイズを15pxに固定 */
             letter-spacing: 0.02em;
         }
         .main-nav a:hover {
@@ -76,7 +76,7 @@
             height: 100%;
         }
         .btn-reserve {
-            background-color: #0d4da1; /* 本家の鮮やかな紺 */
+            background-color: #0d4da1;
             color: #ffffff;
             padding: 9px 24px;
             border-radius: 20px;
@@ -110,18 +110,17 @@
             text-decoration: none;
         }
 
-        /* ─── 2. サブヘッダー（背景画像エリアの縦幅を本家のゆったり感に完全一致） ─── */
+        /* ─── 2. サブヘッダー（背景画像エリアの縦幅を本家に完全一致） ─── */
         .kaikatsu-lower-area {
             background-image: url("lower-visual.jpg");
             background-size: cover;
             background-position: center;
             position: relative;
-            height: 330px; /* 💡縦幅を大幅に広げ、本家の壮大なスケール感と一致させました */
+            height: 220px; /* 💡サブヘッダーの縦幅を本家スクショの比率にジャストフィット */
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
         }
-        /* 本家風のシネマティック暗転フィルター */
         .kaikatsu-lower-area::before {
             content: "";
             position: absolute;
@@ -130,7 +129,7 @@
             z-index: 1;
         }
         .lower-area-inner {
-            max-width: 1200px; /* 横幅のゆとりを本家に合わせる */
+            max-width: 1200px;
             width: 100%;
             height: 100%;
             margin: 0 auto;
@@ -142,7 +141,6 @@
             justify-content: flex-start;
             box-sizing: border-box;
         }
-        /* パンくずリスト（画像内部の左上に綺麗にマウント） */
         .breadcrumbs {
             font-size: 12px;
             color: #cccccc;
@@ -155,17 +153,16 @@
         .breadcrumbs a:hover {
             text-decoration: underline;
         }
-        /* メインタイトルをエリアの中央に縦並びで配置 */
         .main-title-container {
             flex-grow: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: -20px; /* パンくずの縦幅分を相殺して完全中央へ調整 */
+            margin-top: -20px;
         }
         .main-title {
-            font-size: 32px; /* 本家の堂々とした文字サイズ */
-            font-weight: 400; /* 本家特有の、太すぎない洗練されたウェイト */
+            font-size: 32px;
+            font-weight: 400;
             color: #ffffff;
             margin: 0;
             letter-spacing: 0.08em;
@@ -309,7 +306,7 @@
         }
 
         .list-item {
-            background: #f4f4f4; /* リスト背景を本家の薄グレーブロックに統一 */
+            background: #f4f4f4;
             margin-bottom: 8px;
             padding: 16px 20px;
             border-radius: 4px;
@@ -318,7 +315,7 @@
             position: relative;
         }
         .list-item::after {
-            content: "＋"; /* 本家のアコーディオンをオマージュしたプラス表記 */
+            content: "＋";
             position: absolute;
             right: 20px;
             top: 50%;
@@ -345,16 +342,14 @@
             .header-container { flex-wrap: wrap; padding: 10px 0; }
             .header-left, .header-right { width: 100%; justify-content: space-between; }
             .main-nav { width: 100%; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-            .kaikatsu-lower-area { height: 220px; }
+            .kaikatsu-lower-area { height: 180px; }
         }
     </style>
 </head>
 <body>
 
-<!-- ─── 1. グローバルヘッダー（本家完全再現：配置・密着度最適化） ─── -->
 <header class="kaikatsu-global-header">
     <div class="header-container">
-        <!-- 左寄せブロック -->
         <div class="header-left">
             <a href="./" class="logo-link">
                 <img src="logo01.svg" alt="快活CLUB">
@@ -366,7 +361,6 @@
                 <a href="https://www.kaikatsu.jp/food/" target="_blank">お食事メニュー</a>
             </nav>
         </div>
-        <!-- 右寄せブロック -->
         <div class="header-right">
             <a href="https://reservation.kaikatsu.jp/" target="_blank" class="btn-reserve">鍵付完全個室WEB予約</a>
             <a href="https://www.kaikatsu.jp/contact/" target="_blank" class="btn-contact">お問い合わせ</a>
@@ -379,7 +373,6 @@
     </div>
 </header>
 
-<!-- ─── 2. サブヘッダーエリア（縦幅拡大・パンくず内包） ─── -->
 <div class="kaikatsu-lower-area">
     <div class="lower-area-inner">
         <nav class="breadcrumbs">
@@ -391,7 +384,6 @@
     </div>
 </div>
 
-<!-- 3. メインコンテンツ -->
 <main class="main-container" id="main-content">
     <p class="loading">データを読み込み中...</p>
 </main>
