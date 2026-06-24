@@ -229,14 +229,44 @@
             box-sizing: border-box;
         }
 
-        h2.headline {
-            font-size: 28px;
-            line-height: 1.6em;
-            font-weight: bold;
-            text-align: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #000000;
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
             margin-bottom: 40px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .category-nav-link {
+            display: inline-block;
+            padding: 10px 25px;
+            color: #ec661b;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border: 2px solid #ec661b;
+            border-radius: 40px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .category-nav-link:hover {
+            background-color: #ec661b;
+            color: #fff;
+        }
+
+        .faq-group {
+            margin-bottom: 50px;
+        }
+        .category-heading {
+            font-size: 24px;
+            color: #000;
+            font-weight: bold;
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 6px solid #ec661b;
         }
 
         .loading {
@@ -496,18 +526,48 @@
             
             dynamicTitle.textContent = "よくあるご質問";
             breadcrumbCurrent.textContent = "よくあるご質問";
-            mainContent.innerHTML = '<h2 class="headline">ご質問一覧</h2>';
+            mainContent.innerHTML = '';
             
             if (data.length === 0) {
                 mainContent.innerHTML += '<p class="loading">現在FAQはありません。</p>';
                 return;
             }
-            
-            data.forEach((item) => {
-                const div = document.createElement('div');
-                div.className = 'list-item';
-                div.innerHTML = `<a href="./?category=${item.category}&id=${item.id}">Q. ${item.question}</a>`;
-                mainContent.appendChild(div);
+
+            const categories = [...new Set(data.map(item => item.category))];
+
+            const categoryNav = document.createElement('div');
+            categoryNav.className = 'category-nav';
+            categories.forEach(cat => {
+                const navLink = document.createElement('a');
+                navLink.className = 'category-nav-link';
+                navLink.textContent = cat;
+                navLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetSection = document.getElementById(`group-${cat}`);
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
+                categoryNav.appendChild(navLink);
+            });
+            mainContent.appendChild(categoryNav);
+
+            categories.forEach(cat => {
+                const groupDiv = document.createElement('div');
+                groupDiv.className = 'faq-group';
+                groupDiv.id = `group-${cat}`;
+
+                const catHeader = document.createElement('h3');
+                catHeader.className = 'category-heading';
+                catHeader.textContent = cat;
+                groupDiv.appendChild(catHeader);
+
+                const faqItems = data.filter(item => item.category === cat);
+                faqItems.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'list-item';
+                    div.innerHTML = `<a href="./?category=${item.category}&id=${item.id}">Q. ${item.question}</a>`;
+                    groupDiv.appendChild(div);
+                });
+                mainContent.appendChild(groupDiv);
             });
             
         } catch (error) {
